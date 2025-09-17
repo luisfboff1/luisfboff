@@ -1,0 +1,35 @@
+[
+  {
+    "id": "vend_001",
+    "cpf": "123.456.789-00",
+    "nome": "João Silva",
+    "email": "joao@meguispet.com",
+    "telefone": "(11) 99999-1111",
+    "comissao_percentual": 5.0,
+    "ativo": true,
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "vend_002",
+    "cpf": "987.654.321-00",
+    "nome": "Maria Santos",
+    "email": "maria@meguispet.com",
+    "telefone": "(11) 99999-2222",
+    "comissao_percentual": 4.5,
+    "ativo": true,
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "vend_003",
+    "cpf": "456.789.123-00",
+    "nome": "Pedro Costa",
+    "email": "pedro@meguispet.com",
+    "telefone": "(11) 99999-3333",
+    "comissao_percentual": 6.0,
+    "ativo": true,
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2024-01-01T00:00:00.000Z"
+  }
+]

@@ -1,0 +1,80 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Megui's Pet • Admin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Megui's Pet">
+      Megui's Pet
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="active">Início</a>
+      <a href="pages/dashboard.html">Dashboard</a>
+      <a href="pages/produtos.html">Produtos</a>
+      <a href="pages/estoque.html">Estoque</a>
+      <a href="pages/vendas.html">Vendas</a>
+      <a href="pages/vendedores.html">Vendedores</a>
+      <a href="pages/config.html">Configurações</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h1>Admin • Megui's Pet</h1>
+      <p>Esqueleto inicial para o **App de Gestão**: estoque, vendas, vendedores e produtos. 
+         Navegue pelo topo para ver as páginas base. Este layout usa header fixo, cards em grid e paleta configurável em <code>:root</code>.</p>
+      <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap;">
+        <a class="btn" href="pages/dashboard.html">Ir ao Dashboard</a>
+        <a class="btn btn-outline" href="pages/config.html">Ajustar Cores & Layout</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Atalhos rápidos</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Cadastro de Produto</h3>
+          <p class="muted">Inclua novo produto com SKU, preço e estoque mínimo.</p>
+          <a class="btn" href="pages/produtos.html">Abrir</a>
+        </div>
+        <div class="card">
+          <h3>Entrada de Estoque</h3>
+          <p class="muted">Lance compras/ajustes de inventário.</p>
+          <a class="btn" href="pages/estoque.html">Abrir</a>
+        </div>
+        <div class="card">
+          <h3>Nova Venda</h3>
+          <p class="muted">Registre uma venda rápida no PDV.</p>
+          <a class="btn" href="pages/vendas.html">Abrir</a>
+        </div>
+        <div class="card">
+          <h3>Equipe/Vendedores</h3>
+          <p class="muted">Gerencie metas e comissões.</p>
+          <a class="btn" href="pages/vendedores.html">Abrir</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Como editar</h2>
+      <div class="card">
+        <p>• Ajuste a paleta em <code>styles.css</code> (variáveis <code>--wc-*</code>).<br>
+           • Adicione APIs/Persistência em <code>script.js</code> (hoje está com mocks).<br>
+           • Os módulos estão em <code>/pages</code> para facilitar a iteração no Cursor.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Megui's Pet — Admin
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
