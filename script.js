@@ -390,6 +390,10 @@ function createThemeToggle() {
 // Initialize theme toggle
 document.addEventListener('DOMContentLoaded', function() {
     createThemeToggle();
+    
+    // Initialize GitHub integration
+    const projectsUpdater = new ProjectsUpdater();
+    projectsUpdater.updateProjects();
 });
 
 // ===== PERFORMANCE OPTIMIZATION =====
@@ -425,6 +429,296 @@ const imageObserver = new IntersectionObserver((entries, observer) => {
 });
 
 lazyImages.forEach(img => imageObserver.observe(img));
+
+// ===== GITHUB API INTEGRATION =====
+class GitHubAPI {
+    constructor() {
+        this.username = 'luisfboff1';
+        this.apiUrl = 'https://api.github.com';
+        this.repositories = [];
+    }
+
+    async fetchRepositories() {
+        try {
+            const response = await fetch(`${this.apiUrl}/users/${this.username}/repos?sort=updated&per_page=100`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const repos = await response.json();
+            
+            // Filtrar repositórios relevantes (não forks, não arquivados, com descrição)
+            this.repositories = repos.filter(repo => 
+                !repo.fork && 
+                !repo.archived && 
+                repo.description && 
+                repo.description.trim() !== '' &&
+                repo.name !== this.username // Excluir o repositório do próprio site
+            );
+            
+            return this.repositories;
+        } catch (error) {
+            console.error('Erro ao buscar repositórios:', error);
+            return [];
+        }
+    }
+
+    async fetchReadme(repoName) {
+        try {
+            const response = await fetch(`${this.apiUrl}/repos/${this.username}/${repoName}/readme`);
+            if (!response.ok) {
+                return null;
+            }
+            const readme = await response.json();
+            // Decodificar o conteúdo base64
+            return atob(readme.content);
+        } catch (error) {
+            console.error(`Erro ao buscar README do ${repoName}:`, error);
+            return null;
+        }
+    }
+
+    getLanguageColor(language) {
+        const colors = {
+            'JavaScript': '#f7df1e',
+            'TypeScript': '#3178c6',
+            'Python': '#3776ab',
+            'Java': '#ed8b00',
+            'C++': '#00599c',
+            'C#': '#239120',
+            'PHP': '#777bb4',
+            'Ruby': '#cc342d',
+            'Go': '#00add8',
+            'Rust': '#000000',
+            'Swift': '#fa7343',
+            'Kotlin': '#7f52ff',
+            'HTML': '#e34f26',
+            'CSS': '#1572b6',
+            'Vue': '#4fc08d',
+            'React': '#61dafb',
+            'Angular': '#dd0031',
+            'Node.js': '#339933',
+            'Docker': '#2496ed',
+            'Shell': '#89e051'
+        };
+        return colors[language] || '#8b5cf6';
+    }
+
+    formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('pt-BR', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        });
+    }
+}
+
+// ===== PROJECTS SECTION UPDATER =====
+class ProjectsUpdater {
+    constructor() {
+        this.githubAPI = new GitHubAPI();
+        this.projectsContainer = document.querySelector('.projects-grid');
+        this.loadingElement = null;
+    }
+
+    async updateProjects() {
+        this.showLoading();
+        
+        try {
+            const repositories = await this.githubAPI.fetchRepositories();
+            this.renderProjects(repositories);
+        } catch (error) {
+            this.showError();
+        } finally {
+            this.hideLoading();
+        }
+    }
+
+    showLoading() {
+        this.loadingElement = document.createElement('div');
+        this.loadingElement.className = 'loading-projects';
+        this.loadingElement.innerHTML = `
+            <div class="loading-spinner"></div>
+            <p>Carregando projetos do GitHub...</p>
+        `;
+        this.loadingElement.style.cssText = `
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-family: 'Source Code Pro', monospace;
+        `;
+        
+        this.projectsContainer.innerHTML = '';
+        this.projectsContainer.appendChild(this.loadingElement);
+    }
+
+    hideLoading() {
+        if (this.loadingElement) {
+            this.loadingElement.remove();
+        }
+    }
+
+    showError() {
+        this.projectsContainer.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Erro ao carregar projetos. Tente novamente mais tarde.</p>
+            </div>
+        `;
+    }
+
+    renderProjects(repositories) {
+        if (repositories.length === 0) {
+            this.projectsContainer.innerHTML = `
+                <div class="no-projects">
+                    <i class="fas fa-folder-open"></i>
+                    <p>Nenhum projeto encontrado.</p>
+                </div>
+            `;
+            return;
+        }
+
+        this.projectsContainer.innerHTML = repositories.map(repo => this.createProjectCard(repo)).join('');
+        
+        // Adicionar event listeners para os modais
+        this.addModalListeners();
+    }
+
+    createProjectCard(repo) {
+        const language = repo.language || 'Outros';
+        const languageColor = this.githubAPI.getLanguageColor(language);
+        const updatedDate = this.githubAPI.formatDate(repo.updated_at);
+        
+        return `
+            <div class="project-card" data-repo="${repo.name}">
+                <div class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="${repo.html_url}" target="_blank" class="project-link" title="Ver no GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="project-link" title="Ver Demo"><i class="fas fa-external-link-alt"></i></a>` : ''}
+                            <button class="project-link readme-btn" title="Ver README" data-repo="${repo.name}">
+                                <i class="fas fa-book"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-placeholder">
+                        <i class="fab fa-github"></i>
+                        <span>${language}</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>${repo.name}</h3>
+                    <p>${repo.description}</p>
+                    <div class="project-tech">
+                        <span class="tech-tag" style="background-color: ${languageColor}20; color: ${languageColor}; border: 1px solid ${languageColor}40;">
+                            ${language}
+                        </span>
+                        <span class="tech-tag">⭐ ${repo.stargazers_count}</span>
+                        <span class="tech-tag">🍴 ${repo.forks_count}</span>
+                    </div>
+                    <div class="project-meta">
+                        <small>Atualizado em ${updatedDate}</small>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    addModalListeners() {
+        document.querySelectorAll('.readme-btn').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const repoName = e.currentTarget.getAttribute('data-repo');
+                await this.showReadmeModal(repoName);
+            });
+        });
+    }
+
+    async showReadmeModal(repoName) {
+        const modal = document.createElement('div');
+        modal.className = 'readme-modal';
+        modal.innerHTML = `
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>README - ${repoName}</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="loading-readme">
+                            <div class="loading-spinner"></div>
+                            <p>Carregando README...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        `;
+
+        document.body.appendChild(modal);
+
+        // Fechar modal
+        modal.querySelector('.modal-close').addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+
+        modal.querySelector('.modal-overlay').addEventListener('click', (e) => {
+            if (e.target === modal.querySelector('.modal-overlay')) {
+                document.body.removeChild(modal);
+            }
+        });
+
+        // Carregar README
+        try {
+            const readme = await this.githubAPI.fetchReadme(repoName);
+            const modalBody = modal.querySelector('.modal-body');
+            
+            if (readme) {
+                modalBody.innerHTML = `
+                    <div class="readme-content">
+                        <pre><code>${this.escapeHtml(readme)}</code></pre>
+                    </div>
+                `;
+            } else {
+                modalBody.innerHTML = `
+                    <div class="no-readme">
+                        <i class="fas fa-file-alt"></i>
+                        <p>README não encontrado para este repositório.</p>
+                    </div>
+                `;
+            }
+        } catch (error) {
+            modal.querySelector('.modal-body').innerHTML = `
+                <div class="error-readme">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Erro ao carregar README.</p>
+                </div>
+            `;
+        }
+    }
+
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+}
 
 // ===== CONSOLE ART =====
 console.log(`
