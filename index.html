@@ -1,80 +1,387 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Megui's Pet • Admin</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Fernando Boff - Desenvolvedor & Engenheiro</title>
+    <meta name="description" content="Desenvolvedor Full Stack, Engenheiro, Especialista em IA e Ciência de Dados. Transformando ideias em soluções tecnológicas inovadoras.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Source+Code+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header class="header">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.png" alt="Megui's Pet">
-      Megui's Pet
-    </a>
-    <nav class="nav">
-      <a href="index.html" class="active">Início</a>
-      <a href="pages/dashboard.html">Dashboard</a>
-      <a href="pages/produtos.html">Produtos</a>
-      <a href="pages/estoque.html">Estoque</a>
-      <a href="pages/vendas.html">Vendas</a>
-      <a href="pages/vendedores.html">Vendedores</a>
-      <a href="pages/config.html">Configurações</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">&lt;LF/&gt;</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <main class="container">
-    <section class="section">
-      <h1>Admin • Megui's Pet</h1>
-      <p>Esqueleto inicial para o **App de Gestão**: estoque, vendas, vendedores e produtos. 
-         Navegue pelo topo para ver as páginas base. Este layout usa header fixo, cards em grid e paleta configurável em <code>:root</code>.</p>
-      <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap;">
-        <a class="btn" href="pages/dashboard.html">Ir ao Dashboard</a>
-        <a class="btn btn-outline" href="pages/config.html">Ajustar Cores & Layout</a>
-      </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="code-rain"></div>
+            <div class="floating-elements">
+                <div class="element element-1">{ }</div>
+                <div class="element element-2">&lt;/&gt;</div>
+                <div class="element element-3">AI</div>
+                <div class="element element-4">ML</div>
+                <div class="element element-5">⚡</div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Desenvolvedor</span>
+                    <span class="title-line">Engenheiro</span>
+                    <span class="title-line highlight">Inovador</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Transformando ideias em <span class="code-text">soluções tecnológicas</span><br>
+                    através de <span class="magic-text">código, dados e inteligência artificial</span>
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Ver Projetos
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Vamos Conversar
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="btn-close"></span>
+                            <span class="btn-minimize"></span>
+                            <span class="btn-maximize"></span>
+                        </div>
+                        <span class="terminal-title">luis@portfolio:~$</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">whoami</span>
+                        </div>
+                        <div class="terminal-output">Luis Fernando Boff</div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">cat skills.txt</span>
+                        </div>
+                        <div class="terminal-output">
+                            Full Stack Developer<br>
+                            Data Scientist<br>
+                            AI Engineer<br>
+                            Solar Energy Specialist
+                        </div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command typing">echo "Ready to build the future"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="section">
-      <h2>Atalhos rápidos</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Cadastro de Produto</h3>
-          <p class="muted">Inclua novo produto com SKU, preço e estoque mínimo.</p>
-          <a class="btn" href="pages/produtos.html">Abrir</a>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre Mim</h2>
+                <p class="section-subtitle">A jornada de um engenheiro apaixonado por tecnologia</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-card">
+                        <h3>🎓 Formação Acadêmica</h3>
+                        <p><strong>Mestrado em Engenharia</strong> - UFRGS</p>
+                        <p>Especialização em sistemas inteligentes e otimização energética</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>💻 Experiência Técnica</h3>
+                        <p><strong>Desenvolvedor Full Stack</strong> com foco em soluções inovadoras</p>
+                        <p>Especialista em <span class="highlight">Inteligência Artificial</span> e <span class="highlight">Ciência de Dados</span></p>
+                    </div>
+                    <div class="about-card">
+                        <h3>⚡ Energia Solar</h3>
+                        <p><strong>Projetos de Energia Renovável</strong></p>
+                        <p>Desenvolvimento de soluções sustentáveis para o futuro</p>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Projetos Concluídos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">Tecnologias Dominadas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="100">0</div>
+                        <div class="stat-label">% Satisfação do Cliente</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <h3>Entrada de Estoque</h3>
-          <p class="muted">Lance compras/ajustes de inventário.</p>
-          <a class="btn" href="pages/estoque.html">Abrir</a>
-        </div>
-        <div class="card">
-          <h3>Nova Venda</h3>
-          <p class="muted">Registre uma venda rápida no PDV.</p>
-          <a class="btn" href="pages/vendas.html">Abrir</a>
-        </div>
-        <div class="card">
-          <h3>Equipe/Vendedores</h3>
-          <p class="muted">Gerencie metas e comissões.</p>
-          <a class="btn" href="pages/vendedores.html">Abrir</a>
-        </div>
-      </div>
     </section>
 
-    <section class="section">
-      <h2>Como editar</h2>
-      <div class="card">
-        <p>• Ajuste a paleta em <code>styles.css</code> (variáveis <code>--wc-*</code>).<br>
-           • Adicione APIs/Persistência em <code>script.js</code> (hoje está com mocks).<br>
-           • Os módulos estão em <code>/pages</code> para facilitar a iteração no Cursor.</p>
-      </div>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Serviços</h2>
+                <p class="section-subtitle">Soluções tecnológicas para transformar seu negócio</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Desenvolvimento Full Stack</h3>
+                    <p>Aplicações web modernas com React, Node.js, Python e muito mais</p>
+                    <ul class="service-tech">
+                        <li>Frontend: React, Next.js, TypeScript</li>
+                        <li>Backend: Node.js, Python, PHP</li>
+                        <li>Database: MySQL, PostgreSQL, MongoDB</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Inteligência Artificial</h3>
+                    <p>Soluções de IA e Machine Learning para automatizar processos</p>
+                    <ul class="service-tech">
+                        <li>Machine Learning: Python, TensorFlow</li>
+                        <li>Deep Learning: PyTorch, Keras</li>
+                        <li>NLP: Processamento de linguagem natural</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Ciência de Dados</h3>
+                    <p>Análise de dados e insights para tomada de decisões estratégicas</p>
+                    <ul class="service-tech">
+                        <li>Análise: Python, R, SQL</li>
+                        <li>Visualização: Tableau, Power BI</li>
+                        <li>Big Data: Apache Spark, Hadoop</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Desenvolvimento Mobile</h3>
+                    <p>Aplicativos nativos e híbridos para iOS e Android</p>
+                    <ul class="service-tech">
+                        <li>React Native</li>
+                        <li>Flutter</li>
+                        <li>Swift, Kotlin</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Projetos de Energia Solar</h3>
+                    <p>Soluções sustentáveis e eficientes em energia renovável</p>
+                    <ul class="service-tech">
+                        <li>Dimensionamento de sistemas</li>
+                        <li>Análise de viabilidade</li>
+                        <li>Monitoramento inteligente</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud & DevOps</h3>
+                    <p>Infraestrutura escalável e deploy automatizado</p>
+                    <ul class="service-tech">
+                        <li>AWS, Azure, Google Cloud</li>
+                        <li>Docker, Kubernetes</li>
+                        <li>CI/CD, GitHub Actions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer class="footer">
-    © <span id="year"></span> Megui's Pet — Admin
-  </footer>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projetos</h2>
+                <p class="section-subtitle">Alguns dos projetos que transformaram ideias em realidade</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Megui's Pet Admin</h3>
+                        <p>Sistema completo de gestão para pet shops com IA para análise de vendas</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">AI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema de Monitoramento Solar</h3>
+                        <p>Dashboard inteligente para monitoramento de sistemas de energia solar</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">IoT</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Chatbot para E-commerce</h3>
+                        <p>Assistente virtual inteligente para atendimento ao cliente</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Vamos Construir Algo Incrível</h2>
+                <p class="section-subtitle">Pronto para transformar sua ideia em realidade?</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>luis@luisfboff.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/luisfboff</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>GitHub</h4>
+                            <p>github.com/luisfboff1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Seu Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Seu Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Assunto" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Luis Fernando Boff. Todos os direitos reservados.</p>
+                    <p>Construído com <span class="heart">❤️</span> e muito café ☕</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

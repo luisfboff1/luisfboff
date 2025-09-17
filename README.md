@@ -1,441 +1,254 @@
-# Megui's Pet - Sistema Administrativo
+# 🌟 Site Vitrine - Luis Fernando Boff
 
 ## 📋 Visão Geral
 
-O **Megui's Pet** é um sistema administrativo completo para gestão de pet shop, desenvolvido com tecnologias modernas para oferecer uma experiência robusta e escalável. O sistema permite gerenciar produtos, estoque, vendas, vendedores, clientes e fornecedores de forma integrada.
+Site vitrine profissional com tema **dark code** inspirado em "Senhor dos Anéis" para programação e engenharia. Design moderno e interativo para mostrar habilidades e projetos.
 
-## 🏗️ Arquitetura e Tecnologias
+## 🎨 Características do Design
 
-### Stack Principal
-- **Framework**: Next.js 15.5.3 (React 19.1.0)
-- **Linguagem**: TypeScript 5
-- **Estilização**: Tailwind CSS 4 + CSS Custom Properties
-- **Banco de Dados**: Supabase (PostgreSQL) + SQLite local para desenvolvimento
-- **Gráficos**: Recharts
-- **Formulários**: React Hook Form + Zod
-- **Ícones**: Lucide React
+### **Tema Visual:**
+- **Dark Code Theme**: Cores escuras com acentos neon
+- **Inspiração**: Senhor dos Anéis + Programação
+- **Paleta de Cores**:
+  - Primária: `#00ff88` (Verde neon)
+  - Secundária: `#ff6b35` (Laranja)
+  - Accent: `#8b5cf6` (Roxo)
+  - Background: `#0a0a0a` (Preto profundo)
 
+### **Tipografia:**
+- **Títulos**: Orbitron (Futurista)
+- **Texto**: Source Code Pro (Monospace)
 
+## 🚀 Funcionalidades
 
+### **Seções Principais:**
+1. **Hero Section**: Apresentação impactante com terminal animado
+2. **Sobre**: Formação acadêmica e experiência
+3. **Serviços**: 6 áreas de especialização
+4. **Projetos**: Portfolio com projetos destacados
+5. **Contato**: Formulário e informações de contato
+
+### **Interatividade:**
+- ✅ **Animações de Scroll**: Elementos aparecem conforme scroll
+- ✅ **Terminal Animado**: Simulação de terminal com typing effect
+- ✅ **Contadores Animados**: Estatísticas com animação
+- ✅ **Efeito Parallax**: Elementos flutuantes
+- ✅ **Sistema de Partículas**: Background interativo
+- ✅ **Formulário Funcional**: Validação e notificações
+- ✅ **Menu Mobile**: Responsivo com hamburger menu
+- ✅ **Smooth Scrolling**: Navegação suave entre seções
+
+## 🛠️ Tecnologias Utilizadas
+
+### **Frontend:**
+- **HTML5**: Estrutura semântica
+- **CSS3**: Animações, gradientes, grid/flexbox
+- **JavaScript ES6+**: Interatividade e animações
+- **Font Awesome**: Ícones
+- **Google Fonts**: Tipografia
+
+### **Recursos Avançados:**
+- **CSS Grid & Flexbox**: Layout responsivo
+- **CSS Animations**: Animações suaves
+- **Intersection Observer**: Animações baseadas em scroll
+- **Canvas API**: Sistema de partículas
+- **Local Storage**: Preferências do usuário
+
+## 📱 Responsividade
+
+### **Breakpoints:**
+- **Desktop**: 1200px+
+- **Tablet**: 768px - 1199px
+- **Mobile**: 320px - 767px
+
+### **Adaptações Mobile:**
+- Menu hamburger
+- Grid responsivo
+- Botões em stack
+- Texto otimizado
+
+## 🎯 Seções Detalhadas
+
+### **1. Hero Section**
+```html
+- Título principal com animação
+- Subtítulo com destaque para tecnologias
+- Botões de ação (Ver Projetos, Contato)
+- Terminal animado com typing effect
+- Background com elementos flutuantes
 ```
-meguispet-admin/
-├── 📁 src/                          # Código fonte principal
-│   ├── 📁 app/                      # App Router do Next.js
-│   │   ├── 📁 api/                  # API Routes (Backend)
-│   │   │   ├── 📁 clientes-fornecedores/
-│   │   │   ├── 📁 contas/
-│   │   │   ├── 📁 fluxo-caixa/
-│   │   │   ├── 📁 itens-venda/
-│   │   │   ├── 📁 movimentos-estoque/
-│   │   │   ├── 📁 produtos/
-│   │   │   ├── 📁 tipos-movimentos/
-│   │   │   ├── 📁 usuarios/
-│   │   │   ├── 📁 vendas/
-│   │   │   ├── 📁 vendedores/
-│   │   │   ├── 📁 export-csv/
-│   │   │   └── 📁 migrate/
-│   │   ├── 📁 [páginas]/            # Páginas da aplicação
-│   │   │   ├── 📄 page.tsx          # Dashboard principal
-│   │   │   ├── 📄 dashboard/page.tsx
-│   │   │   ├── 📄 produtos/page.tsx
-│   │   │   ├── 📄 estoque/page.tsx
-│   │   │   ├── 📄 vendas/page.tsx
-│   │   │   ├── 📄 vendedores/page.tsx
-│   │   │   ├── 📄 clientes/page.tsx
-│   │   │   └── 📄 config/page.tsx
-│   │   ├── 📄 layout.tsx            # Layout principal
-│   │   ├── 📄 globals.css           # Estilos globais
-│   │   └── 📄 page.tsx              # Página inicial
-│   ├── 📁 components/               # Componentes reutilizáveis
-│   │   ├── 📄 Header.tsx            # Cabeçalho com navegação
-│   │   ├── 📄 Footer.tsx            # Rodapé
-│   │   ├── 📄 DataManager.tsx       # Gerenciador de dados
-│   │   ├── 📄 ProdutoForm.tsx       # Formulário de produtos
-│   │   ├── 📄 ProdutoModal.tsx      # Modal de produtos
-│   │   ├── 📄 ImportCSVModal.tsx    # Modal de importação CSV
-│   │   └── 📄 RelatorioVendasModal.tsx
-│   └── 📁 lib/                      # Utilitários e configurações
-│       ├── 📄 database.ts           # Camada de abstração do banco
-│       ├── 📄 database-client.ts    # Cliente do banco
-│       ├── 📄 database-server.ts    # Servidor do banco
-│       ├── 📄 supabase.ts           # Configuração Supabase
-│       └── 📄 migration-server.ts   # Migração de dados
-├── 📁 data/                         # Dados locais (JSON)
-├── 📁 public/                       # Arquivos estáticos
-│   ├── 📁 assets/                   # Imagens e logos
-│   └── 📁 images/                   # Imagens dos produtos
-├── 📄 database-schema.sql           # Schema do banco Supabase
-├── 📄 package.json                  # Dependências e scripts
-└── 📄 README.md                     # Este arquivo
+
+### **2. Sobre**
+```html
+- 3 cards com informações principais
+- Estatísticas animadas (projetos, experiência, etc.)
+- Layout em grid responsivo
 ```
 
-## 🗄️ Estrutura do Banco de Dados
+### **3. Serviços**
+```html
+- 6 cards de serviços
+- Ícones Font Awesome
+- Lista de tecnologias por serviço
+- Efeito hover com shimmer
+```
 
-### Tabelas Principais
+### **4. Projetos**
+```html
+- Grid de projetos
+- Overlay com links (demo, GitHub)
+- Tags de tecnologias
+- Efeito hover com zoom
+```
 
-#### 1. **usuarios**
-- Gestão de usuários do sistema
-- Campos: id, nome, email, permissoes[], ativo, timestamps
+### **5. Contato**
+```html
+- Informações de contato com ícones
+- Formulário funcional com validação
+- Sistema de notificações
+- Layout em duas colunas
+```
 
-#### 2. **produtos**
-- Catálogo de produtos
-- Campos: id, codigo, nome, descricao, preco_custo, preco_venda, estoque_minimo, estoque_atual, unidade, categoria, ativo, timestamps
+## 🚀 Como Usar
 
-#### 3. **vendedores**
-- Cadastro de vendedores
-- Campos: id, cpf, nome, email, telefone, comissao_percentual, ativo, timestamps
+### **1. Estrutura de Arquivos:**
+```
+site-vitrine/
+├── index.html          # Página principal
+├── styles.css          # Estilos CSS
+├── script.js           # JavaScript
+└── README.md           # Documentação
+```
 
-#### 4. **clientes_fornecedores**
-- Clientes e fornecedores unificados
-- Campos: id, tipo (fisica/juridica), cpf_cnpj, nome_razao_social, nome_fantasia, contatos, endereço, vendedor_id, ativo, timestamps
+### **2. Personalização:**
 
-#### 5. **vendas**
-- Registro de vendas
-- Campos: id, numero_venda, cliente_id, vendedor_id, data, valor_total, desconto, valor_final, status, observacoes, timestamps
+#### **Alterar Informações Pessoais:**
+```html
+<!-- No index.html -->
+<h1>Seu Nome</h1>
+<p>Suas informações...</p>
+```
 
-#### 6. **itens_venda**
-- Itens de cada venda
-- Campos: id, venda_id, produto_id, quantidade, valor_unitario, valor_total, timestamp
-
-#### 7. **movimentos_estoque**
-- Controle de estoque
-- Campos: id, documento, cliente_fornecedor_id, data, quantidade, valor_unitario, valor_total, tipo_movimento_id, produto_id, estoque_local (RS/SP), observacoes, timestamps
-
-#### 8. **tipos_movimentos**
-- Tipos de movimentação (entrada/saída)
-- Campos: id, descricao, tipo, ativo, timestamps
-
-#### 9. **contas**
-- Plano de contas
-- Campos: id, descricao, tipo (debito/credito), categoria, ativo, timestamps
-
-#### 10. **fluxo_caixa**
-- Controle financeiro
-- Campos: id, data, conta_id, historico, valor, tipo (entrada/saida), observacoes, timestamps
-
-### Relacionamentos
-- **vendas** → **clientes_fornecedores** (cliente_id)
-- **vendas** → **vendedores** (vendedor_id)
-- **itens_venda** → **vendas** (venda_id)
-- **itens_venda** → **produtos** (produto_id)
-- **movimentos_estoque** → **produtos** (produto_id)
-- **movimentos_estoque** → **clientes_fornecedores** (cliente_fornecedor_id)
-- **movimentos_estoque** → **tipos_movimentos** (tipo_movimento_id)
-- **fluxo_caixa** → **contas** (conta_id)
-
-## 🔄 Fluxo de Dados
-
-### Entrada de Dados
-1. **Interface Web**: Formulários React com validação Zod
-2. **API Routes**: Endpoints Next.js para CRUD operations
-3. **Camada de Abstração**: Database.ts para facilitar migração
-4. **Banco de Dados**: Supabase (PostgreSQL) ou SQLite local
-
-### Saída de Dados
-1. **Dashboard**: Gráficos e KPIs em tempo real
-2. **Relatórios**: Exportação CSV/PDF
-3. **APIs**: Endpoints REST para integração externa
-4. **Interface**: Tabelas e cards responsivos
-
-### Processamento
-- **Validação**: Zod schemas para type safety
-- **Transformação**: Dados formatados para exibição
-- **Agregação**: Cálculos de totais, médias e estatísticas
-- **Cache**: Otimização de performance com Next.js
-
-## 🎨 Sistema de Design
-
-### Paleta de Cores
+#### **Alterar Cores:**
 ```css
-/* Cores principais da marca Megui's Pet */
---wc-primary: #ffba00;         /* Laranja principal */
---wc-primary-text: #ffffff;    /* Texto branco */
---wc-secondary: #fff8e1;       /* Amarelo claro de fundo */
---wc-highlight: #fcb900;       /* Amarelo vibrante */
---wc-accent: #ff8c00;          /* Laranja mais escuro para hover */
-
-/* Cores de status */
---text-green: #28a745;         /* Sucesso */
---text-orange: #ff6b35;        /* Aviso */
---text-red: #dc3545;           /* Erro */
+/* No styles.css */
+:root {
+    --primary-color: #sua-cor;
+    --secondary-color: #sua-cor;
+}
 ```
 
-### Componentes Visuais
-- **Header**: Gradiente laranja com logo e navegação
-- **Cards**: Bordas arredondadas com sombras suaves
-- **Botões**: Estilo primário e outline
-- **Tabelas**: Design limpo com hover effects
-- **Modais**: Overlay com animações suaves
-- **Gráficos**: Cores da marca com Recharts
-
-### Responsividade
-- **Mobile First**: Design adaptável para todos os dispositivos
-- **Breakpoints**: Tailwind CSS para diferentes tamanhos
-- **Grid System**: Layout flexível e responsivo
-
-## 🚀 Como Executar o Projeto
-
-### Pré-requisitos
-- Node.js 18+ 
-- npm ou yarn
-- MySQL na Hostinger (para produção)
-- Conta no Supabase (opcional - para desenvolvimento)
-
-### Instalação
-```bash
-# Clone o repositório
-git clone [url-do-repositorio]
-cd meguispet-admin
-
-# Instale as dependências
-npm install
-
-# Configure as variáveis de ambiente
-cp env.example .env.local
-# Edite .env.local com suas credenciais do MySQL Hostinger
-
-# Execute o projeto
-npm run dev
+#### **Adicionar Projetos:**
+```html
+<!-- Copiar e modificar project-card -->
+<div class="project-card">
+    <!-- Seu projeto aqui -->
+</div>
 ```
 
-### Scripts Disponíveis
-```bash
-# Desenvolvimento
-npm run dev              # Servidor de desenvolvimento
-npm run build            # Build para desenvolvimento
-npm run start            # Servidor de produção
+### **3. Deploy:**
 
-# Produção (Hostinger)
-npm run build:static     # Build estático para produção
-npm run deploy:prepare   # Prepara arquivos para deploy
-npm run deploy:copy      # Copia arquivos para pasta deploy/
+#### **Para Hostinger:**
+1. Fazer upload dos arquivos para `public_html/`
+2. Acessar via `https://luisfboff.com/`
 
-# Banco de Dados
-npm run db:check         # Testa conexão com MySQL
-npm run db:setup         # Configura banco de dados
+#### **Para GitHub Pages:**
+1. Criar repositório
+2. Fazer upload dos arquivos
+3. Ativar GitHub Pages nas configurações
 
-# Utilitários
-npm run lint             # Verificação de código
-npm run migrate          # Migração de dados
-npm run export-csv       # Exportação CSV
+## 🎨 Customização Avançada
+
+### **Alterar Tema:**
+```css
+/* Tema claro */
+:root {
+    --bg-primary: #ffffff;
+    --text-primary: #000000;
+    /* ... outras cores */
+}
 ```
 
-## 🔧 Configuração do Banco de Dados
+### **Adicionar Animações:**
+```css
+.custom-animation {
+    animation: nomeAnimacao 2s ease infinite;
+}
 
-### MySQL Hostinger (Produção)
-1. Siga o guia completo: [HOSTINGER_MYSQL_SETUP.md](./HOSTINGER_MYSQL_SETUP.md)
-2. Configure as variáveis de ambiente no `.env.local`:
-```env
-DATABASE_URL="mysql://usuario:senha@host:porta/banco"
-NEXT_PUBLIC_API_BASE_URL="https://admin.meguispet.com/api"
-```
-3. Teste a conexão: `npm run db:check`
-4. Configure o banco: `npm run db:setup`
-
-### SQLite Local (Desenvolvimento)
-- Os dados são salvos em arquivos JSON na pasta `data/`
-- Ideal para desenvolvimento e testes
-- Migração automática para MySQL quando necessário
-
-### Supabase (Opcional)
-1. Crie um projeto no [Supabase](https://supabase.com)
-2. Execute o script `database-schema.sql` no SQL Editor
-3. Configure as variáveis de ambiente:
-```env
-NEXT_PUBLIC_SUPABASE_URL=sua_url_do_supabase
-NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima
+@keyframes nomeAnimacao {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
 ```
 
-## 📊 Funcionalidades Principais
-
-### Dashboard
-- **KPIs**: Faturamento, vendas, estoque, vendedores
-- **Gráficos**: Vendas por mês, categoria, vendedor
-- **Análises**: Produtos mais vendidos, performance
-- **Controle de Estoque**: Alertas de estoque baixo
-
-### Gestão de Produtos
-- **CRUD Completo**: Criar, editar, excluir produtos
-- **Categorização**: Por tipo, sabor, animal
-- **Controle de Preços**: Custo e venda
-- **Gestão de Estoque**: Mínimo e atual
-- **Upload de Imagens**: Fotos dos produtos
-
-### Sistema de Vendas
-- **Processo Completo**: Cliente → Produtos → Vendedor → Venda
-- **Cálculos Automáticos**: Totais, descontos, comissões
-- **Status**: Pendente, confirmada, cancelada
-- **Relatórios**: Por período, vendedor, produto
-
-### Controle de Estoque
-- **Movimentações**: Entrada e saída
-- **Múltiplos Locais**: RS e SP
-- **Rastreabilidade**: Documento, fornecedor, data
-- **Alertas**: Estoque abaixo do mínimo
-
-### Gestão de Pessoas
-- **Vendedores**: CPF, comissão, contatos
-- **Clientes/Fornecedores**: PF/PJ, endereços, vendedor responsável
-- **Usuários**: Sistema de permissões
-
-## 🔄 Migração e Importação
-
-### Migração para MySQL Hostinger
-O sistema foi migrado para usar MySQL da Hostinger em produção:
-
-#### Arquitetura de Migração
-- **Desenvolvimento**: Next.js + MySQL remoto
-- **Produção**: Frontend estático + API PHP + MySQL
-- **Compatibilidade**: Mantém todas as funcionalidades
-
-#### Limitações do Modo Estático
-- ❌ **SSR/SSG**: Não suportado (usa client-side rendering)
-- ❌ **API Routes**: Substituídas por PHP
-- ❌ **Middleware**: Não suportado
-- ❌ **ISR**: Não suportado
-- ✅ **Client Components**: Totalmente suportado
-- ✅ **Recharts**: Funciona perfeitamente
-- ✅ **React Hook Form**: Funciona perfeitamente
-
-#### Contratos da API PHP
-- Documentação completa: [PHP_API_CONTRACTS.md](./PHP_API_CONTRACTS.md)
-- Endpoints padronizados para todas as entidades
-- Formato JSON consistente
-- Paginação e filtros
-
-### Importação CSV
-- **Formatos Suportados**: Produtos, clientes, vendedores
-- **Validação**: Dados obrigatórios e formatos
-- **Preview**: Visualização antes da importação
-- **Logs**: Relatório de sucessos e erros
-
-### Migração de Dados
-- **Local → MySQL**: Migração automática via scripts
-- **Backup**: Exportação completa
-- **Rollback**: Reversão de mudanças
-
-## 🎯 Personalização e Extensibilidade
-
-### Modificar Cores e Design
-1. **Edite `src/app/globals.css`**:
-   - Altere as variáveis CSS custom properties
-   - Modifique a paleta de cores
-   - Ajuste espaçamentos e tipografia
-
-2. **Componentes Tailwind**:
-   - Use classes utilitárias do Tailwind
-   - Crie componentes customizados
-   - Mantenha consistência visual
-
-### Adicionar Novas Funcionalidades
-1. **Crie nova página** em `src/app/[nome]/page.tsx`
-2. **Adicione API route** em `src/app/api/[nome]/route.ts`
-3. **Defina tipos** em `src/lib/database.ts`
-4. **Atualize navegação** em `src/components/Header.tsx`
-
-### Integração com Sistemas Externos
-- **APIs REST**: Endpoints prontos para integração
-- **Webhooks**: Notificações de eventos
-- **Exportação**: CSV, JSON, PDF
-- **Importação**: Dados de outros sistemas
-
-## 📱 Responsividade e Performance
-
-### Otimizações
-- **Next.js**: SSR/SSG para performance
-- **Imagens**: Otimização automática com Next/Image
-- **Bundle**: Code splitting automático
-- **Cache**: Estratégias de cache inteligentes
-
-### Dispositivos Suportados
-- **Desktop**: 1200px+ (layout completo)
-- **Tablet**: 768px-1199px (layout adaptado)
-- **Mobile**: <768px (layout otimizado)
-
-## 🔒 Segurança
-
-### Autenticação
-- **Supabase Auth**: Sistema robusto de autenticação
-- **Permissões**: Controle granular de acesso
-- **Sessões**: Gerenciamento seguro de sessões
-
-### Validação
-- **Zod**: Validação de tipos em runtime
-- **Sanitização**: Limpeza de dados de entrada
-- **CORS**: Configuração de origens permitidas
-
-## 🚀 Deploy e Produção
-
-### Hostinger (Arquitetura Híbrida)
-O sistema foi projetado para funcionar na Hostinger com uma arquitetura híbrida:
-
-#### Desenvolvimento Local
-- Next.js rodando com `npm run dev`
-- Conecta remotamente ao MySQL da Hostinger
-- Todas as funcionalidades disponíveis
-
-#### Produção (Hostinger Compartilhado)
-- **Frontend**: Next.js exportado como arquivos estáticos
-- **Backend**: API PHP simples
-- **Banco**: MySQL da Hostinger
-- **Domínio**: `admin.meguispet.com` (subdomínio)
-
-#### Deploy na Hostinger
-```bash
-# 1. Preparar arquivos para deploy
-npm run deploy:prepare
-
-# 2. Upload via File Manager do hPanel
-# - Pasta deploy/app/ → public_html/admin/app/
-# - Pasta deploy/api/ → public_html/admin/api/
-
-# 3. Configurar credenciais
-# - Editar deploy/api/config.php com credenciais reais
-
-# 4. Testar
-# - Frontend: https://admin.meguispet.com/app/
-# - API: https://admin.meguispet.com/api/health
+### **Modificar Partículas:**
+```javascript
+// No script.js
+const particleCount = 100; // Mais partículas
 ```
 
-### Outras Plataformas
-- **Vercel**: Compatível com Next.js (requer adaptação)
-- **Netlify**: Compatível com Next.js (requer adaptação)
-- **Railway**: Deploy simples (requer adaptação)
+## 📊 Performance
 
-## 📈 Monitoramento e Analytics
+### **Otimizações Implementadas:**
+- ✅ **Lazy Loading**: Imagens carregam conforme necessário
+- ✅ **Throttling**: Eventos de scroll otimizados
+- ✅ **CSS Otimizado**: Propriedades eficientes
+- ✅ **JavaScript Modular**: Código organizado
+- ✅ **Fonts Otimizadas**: Carregamento rápido
 
-### Métricas Disponíveis
-- **Performance**: Core Web Vitals
-- **Uso**: Páginas mais acessadas
-- **Erros**: Logs de erro em tempo real
-- **Negócio**: KPIs de vendas e estoque
+### **Métricas:**
+- **Lighthouse Score**: 90+ (Performance)
+- **First Contentful Paint**: < 1.5s
+- **Largest Contentful Paint**: < 2.5s
 
-## 🤝 Contribuição
+## 🔧 Manutenção
 
-### Padrões de Código
-- **TypeScript**: Tipagem forte obrigatória
-- **ESLint**: Configuração Next.js
-- **Prettier**: Formatação consistente
-- **Conventional Commits**: Padrão de commits
+### **Atualizações Regulares:**
+1. **Projetos**: Adicionar novos projetos
+2. **Skills**: Atualizar tecnologias
+3. **Contato**: Verificar informações
+4. **Performance**: Monitorar métricas
 
-### Estrutura de Commits
-```
-feat: adiciona nova funcionalidade
-fix: corrige bug
-docs: atualiza documentação
-style: mudanças de estilo
-refactor: refatoração de código
-test: adiciona testes
-chore: tarefas de manutenção
-```
+### **Backup:**
+- Manter cópia local dos arquivos
+- Versionar no GitHub
+- Backup do servidor
 
 ## 📞 Suporte
 
-Para dúvidas, sugestões ou problemas:
-- **Issues**: Use o sistema de issues do GitHub
-- **Documentação**: Consulte este README
-- **Código**: Comentários inline no código
+### **Problemas Comuns:**
+1. **Animações não funcionam**: Verificar JavaScript habilitado
+2. **Layout quebrado**: Verificar CSS carregado
+3. **Formulário não envia**: Verificar JavaScript
+
+### **Contato:**
+- **Email**: luis@luisfboff.com
+- **GitHub**: github.com/luisfboff1
+- **LinkedIn**: linkedin.com/in/luisfboff
 
 ---
 
-**Megui's Pet** - Sistema desenvolvido com ❤️ para facilitar a gestão de pet shops modernos.
+## 🎯 Próximos Passos
+
+### **Melhorias Futuras:**
+- [ ] **Blog Section**: Adicionar seção de artigos
+- [ ] **Testimonials**: Depoimentos de clientes
+- [ ] **Dark/Light Toggle**: Alternar temas
+- [ ] **Multi-idioma**: Suporte a inglês
+- [ ] **PWA**: Transformar em Progressive Web App
+- [ ] **Analytics**: Integrar Google Analytics
+- [ ] **SEO**: Otimizações de SEO
+- [ ] **CMS**: Sistema de gerenciamento de conteúdo
+
+### **Integrações:**
+- [ ] **Email Service**: Integrar com serviço de email
+- [ ] **Social Media**: Links para redes sociais
+- [ ] **Portfolio API**: API para gerenciar projetos
+- [ ] **Contact Form**: Backend para formulário
+
+---
+
+**🚀 Site criado com ❤️ e muito café ☕**
+
+*Transformando ideias em realidade através de código, dados e inteligência artificial.*
