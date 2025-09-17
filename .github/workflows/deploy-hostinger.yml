@@ -1,0 +1,47 @@
+name: 🚀 Deploy para Hostinger
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout código
+      uses: actions/checkout@v4
+      
+    - name: 📦 Preparar arquivos
+      run: |
+        echo "📁 Preparando arquivos para deploy..."
+        echo "📄 Arquivos encontrados:"
+        ls -la
+        
+    - name: 🚀 Deploy via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: public_html/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.github/**
+          **/README.md
+          **/.env*
+          **/.DS_Store
+          **/Thumbs.db
+          **/setup-repo.sh
+          **/DEPLOY_CONFIG.md
+        
+    - name: ✅ Deploy concluído
+      run: |
+        echo "🎉 Deploy realizado com sucesso!"
+        echo "🌐 Site disponível em: https://luisfboff.com"
+        echo "📧 Contato: luis@luisfboff.com"
+        echo "👨‍💻 Desenvolvedor: Luis Fernando Boff"
