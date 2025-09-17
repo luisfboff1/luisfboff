@@ -446,14 +446,17 @@ class GitHubAPI {
             }
             const repos = await response.json();
             
-            // Filtrar repositórios relevantes (não forks, não arquivados, com descrição)
+            console.log('Total de repositórios encontrados:', repos.length);
+            
+            // Filtrar repositórios relevantes (não forks, não arquivados)
             this.repositories = repos.filter(repo => 
                 !repo.fork && 
-                !repo.archived && 
-                repo.description && 
-                repo.description.trim() !== '' &&
+                !repo.archived &&
                 repo.name !== this.username // Excluir o repositório do próprio site
             );
+            
+            console.log('Repositórios após filtro:', this.repositories.length);
+            console.log('Repositórios filtrados:', this.repositories.map(r => r.name));
             
             return this.repositories;
         } catch (error) {
@@ -498,7 +501,8 @@ class GitHubAPI {
             'Angular': '#dd0031',
             'Node.js': '#339933',
             'Docker': '#2496ed',
-            'Shell': '#89e051'
+            'Shell': '#89e051',
+            'Outros': '#8b5cf6'
         };
         return colors[language] || '#8b5cf6';
     }
@@ -592,6 +596,8 @@ class ProjectsUpdater {
         const languageColor = this.githubAPI.getLanguageColor(language);
         const updatedDate = this.githubAPI.formatDate(repo.updated_at);
         
+        console.log('Criando card para:', repo.name, 'Linguagem:', language, 'Descrição:', repo.description);
+        
         return `
             <div class="project-card" data-repo="${repo.name}">
                 <div class="project-image">
@@ -613,7 +619,7 @@ class ProjectsUpdater {
                 </div>
                 <div class="project-content">
                     <h3>${repo.name}</h3>
-                    <p>${repo.description}</p>
+                    <p>${repo.description || 'Projeto desenvolvido com ' + language}</p>
                     <div class="project-tech">
                         <span class="tech-tag" style="background-color: ${languageColor}20; color: ${languageColor}; border: 1px solid ${languageColor}40;">
                             ${language}
