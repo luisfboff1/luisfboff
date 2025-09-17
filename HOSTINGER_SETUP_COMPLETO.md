@@ -14,6 +14,40 @@ Este documento contém **TODAS** as configurações necessárias na Hostinger pa
 
 ---
 
+## ⚠️ **IMPORTANTE: O QUE SEGUIR vs O QUE ALTERAR**
+
+### ✅ **SEGUIR EXATAMENTE (NÃO ALTERAR):**
+- **Portas**: 3306 (MySQL), 21 (FTP), 80/443 (HTTP/HTTPS)
+- **Estrutura de pastas**: `/public_html/admin/`
+- **URLs**: `https://admin.meguispet.com`
+- **Comandos e scripts**: Todos os comandos fornecidos
+- **Configurações de segurança**: .htaccess, permissões, firewall
+
+### ❌ **ALTERAR OBRIGATORIAMENTE (VALORES GENÉRICOS):**
+- **Credenciais MySQL**: Usuário, senha, nome do banco
+- **Credenciais FTP**: Usuário, senha
+- **IPs de acesso remoto**: Configurar para IPs reais
+
+### 📍 **ONDE CADA CONFIGURAÇÃO SERÁ USADA NO CÓDIGO:**
+
+#### **1. MySQL Database:**
+- **Arquivo**: `.env.local` (desenvolvimento)
+- **Arquivo**: `src/lib/database.ts` (conexão)
+- **Arquivo**: `scripts/test-mysql-connection.ts` (teste)
+- **Formato**: `DATABASE_URL="mysql://usuario:senha@host:porta/banco"`
+
+#### **2. FTP Credentials:**
+- **Arquivo**: `.github/workflows/deploy.yml` (deploy automático)
+- **Arquivo**: `.github/workflows/rollback.yml` (rollback)
+- **Local**: GitHub Secrets (FTP_SERVER, FTP_USERNAME, FTP_PASSWORD)
+
+#### **3. API URLs:**
+- **Arquivo**: `env.example` (exemplo)
+- **Arquivo**: `src/lib/api-client.ts` (chamadas da API)
+- **Arquivo**: `next.config.js` (configuração do Next.js)
+
+---
+
 ## 1. 🗄️ CONFIGURAÇÃO DO MYSQL DATABASE
 
 ### **O que é:** MySQL é o banco de dados onde ficam armazenados todos os dados do sistema (produtos, vendas, clientes, etc.)
@@ -38,9 +72,13 @@ Este documento contém **TODAS** as configurações necessárias na Hostinger pa
 
 #### **1.3 Anotar Informações do Banco**
 **IMPORTANTE**: Anote essas informações (serão necessárias depois):
-- **Nome do Banco**: `u123456789_meguispet` (exemplo)
-- **Host**: `mysql.hostinger.com`
-- **Porta**: `3306`
+- **Nome do Banco**: `u123456789_meguispet` (exemplo - ⚠️ **ALTERAR** para o nome real)
+- **Host**: `mysql.hostinger.com` (✅ **SEGUIR** exatamente)
+- **Porta**: `3306` (✅ **SEGUIR** exatamente)
+
+**📍 ONDE USAR NO CÓDIGO:**
+- **Arquivo**: `.env.local` → `DATABASE_URL="mysql://usuario:senha@mysql.hostinger.com:3306/nome_banco"`
+- **Arquivo**: `scripts/test-mysql-connection.ts` → Teste de conexão
 
 ---
 
@@ -63,8 +101,12 @@ Este documento contém **TODAS** as configurações necessárias na Hostinger pa
 
 #### **2.2 Anotar Credenciais do Usuário**
 **IMPORTANTE**: Anote essas informações:
-- **Usuário**: `u123456789_admin` (exemplo)
-- **Senha**: `Meguispet@2024!`
+- **Usuário**: `u123456789_admin` (exemplo - ⚠️ **ALTERAR** para o usuário real)
+- **Senha**: `Meguispet@2024!` (exemplo - ⚠️ **ALTERAR** para a senha real)
+
+**📍 ONDE USAR NO CÓDIGO:**
+- **Arquivo**: `.env.local` → `DATABASE_URL="mysql://USUARIO_REAL:SENHA_REAL@mysql.hostinger.com:3306/BANCO_REAL"`
+- **Arquivo**: `src/lib/database.ts` → Conexão com o banco
 
 ---
 
@@ -133,10 +175,15 @@ Este documento contém **TODAS** as configurações necessárias na Hostinger pa
 
 #### **5.2 Anotar Credenciais FTP**
 **IMPORTANTE**: Anote essas informações:
-- **Servidor FTP**: `ftp.hostinger.com`
-- **Usuário**: `deploy@meguispet.com`
-- **Senha**: `Deploy@2024!`
-- **Porta**: `21`
+- **Servidor FTP**: `ftp.hostinger.com` (✅ **SEGUIR** exatamente)
+- **Usuário**: `deploy@meguispet.com` (exemplo - ⚠️ **ALTERAR** para o usuário real)
+- **Senha**: `Deploy@2024!` (exemplo - ⚠️ **ALTERAR** para a senha real)
+- **Porta**: `21` (✅ **SEGUIR** exatamente)
+
+**📍 ONDE USAR NO CÓDIGO:**
+- **GitHub Secrets**: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`
+- **Arquivo**: `.github/workflows/deploy.yml` → Deploy automático
+- **Arquivo**: `.github/workflows/rollback.yml` → Rollback automático
 
 ---
 
@@ -159,8 +206,13 @@ Este documento contém **TODAS** as configurações necessárias na Hostinger pa
 5. Clique em **"Criar"**
 
 #### **6.2 Verificar Subdomínio**
-- **URL**: https://admin.meguispet.com
-- **Diretório**: `/public_html/admin/`
+- **URL**: https://admin.meguispet.com (✅ **SEGUIR** exatamente)
+- **Diretório**: `/public_html/admin/` (✅ **SEGUIR** exatamente)
+
+**📍 ONDE USAR NO CÓDIGO:**
+- **Arquivo**: `env.example` → `NEXT_PUBLIC_API_BASE_URL="https://admin.meguispet.com/api"`
+- **Arquivo**: `src/lib/api-client.ts` → Base URL da API
+- **Arquivo**: `next.config.js` → Configuração do Next.js
 
 ---
 
@@ -316,29 +368,101 @@ Options -Indexes
 
 ## 📞 INFORMAÇÕES PARA O DESENVOLVEDOR
 
-### **Credenciais MySQL:**
-```
+### **🔧 CONFIGURAÇÕES QUE DEVEM SER ALTERADAS:**
+
+#### **1. MySQL Database (⚠️ ALTERAR):**
+```bash
+# ❌ NÃO usar estes valores genéricos:
 Host: mysql.hostinger.com
 Porta: 3306
 Banco: u123456789_meguispet
 Usuário: u123456789_admin
 Senha: Meguispet@2024!
+
+# ✅ USAR os valores REAIS da Hostinger:
+# Substituir pelos valores criados na configuração acima
 ```
 
-### **Credenciais FTP:**
-```
+#### **2. FTP Credentials (⚠️ ALTERAR):**
+```bash
+# ❌ NÃO usar estes valores genéricos:
 Servidor: ftp.hostinger.com
 Porta: 21
 Usuário: deploy@meguispet.com
 Senha: Deploy@2024!
 Diretório: /public_html/admin/
+
+# ✅ USAR os valores REAIS da Hostinger:
+# Substituir pelos valores criados na configuração acima
 ```
 
-### **URLs:**
-```
+### **🌐 CONFIGURAÇÕES QUE DEVEM SER SEGUIDAS EXATAMENTE:**
+
+#### **3. URLs (✅ SEGUIR EXATAMENTE):**
+```bash
+# ✅ USAR exatamente como está:
 Site: https://admin.meguispet.com
 API: https://admin.meguispet.com/api/
 Frontend: https://admin.meguispet.com/app/
+```
+
+### **📁 ARQUIVOS QUE PRECISAM SER ATUALIZADOS:**
+
+#### **1. Arquivo `.env.local` (Desenvolvimento):**
+```bash
+# Substituir pelos valores REAIS:
+DATABASE_URL="mysql://USUARIO_REAL:SENHA_REAL@mysql.hostinger.com:3306/BANCO_REAL"
+NEXT_PUBLIC_API_BASE_URL="https://admin.meguispet.com/api"
+```
+
+#### **2. GitHub Secrets (Deploy Automático):**
+```bash
+# Configurar no GitHub → Settings → Secrets:
+FTP_SERVER=ftp.hostinger.com
+FTP_USERNAME=USUARIO_FTP_REAL
+FTP_PASSWORD=SENHA_FTP_REAL
+```
+
+#### **3. Arquivo `src/lib/database.ts` (Conexão):**
+```typescript
+// Usar a DATABASE_URL do .env.local
+const connectionString = process.env.DATABASE_URL;
+```
+
+#### **4. Arquivo `src/lib/api-client.ts` (API):**
+```typescript
+// Usar a URL do .env.local
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || '/api';
+```
+
+---
+
+## 💻 CONFIGURAÇÃO PARA DESENVOLVIMENTO LOCAL
+
+### **🏠 Ambiente de Desenvolvimento:**
+```bash
+# ✅ USAR exatamente como está:
+URL Local: http://localhost:3000
+URL Rede: http://192.168.0.4:3000
+Porta: 3000 (✅ SEGUIR exatamente)
+```
+
+### **🔧 Arquivo `.env.local` (Criar na raiz do projeto):**
+```bash
+# ⚠️ ALTERAR pelos valores REAIS da Hostinger:
+DATABASE_URL="mysql://USUARIO_REAL:SENHA_REAL@mysql.hostinger.com:3306/BANCO_REAL"
+
+# ✅ SEGUIR exatamente:
+NEXT_PUBLIC_API_BASE_URL="https://admin.meguispet.com/api"
+```
+
+### **📋 Comandos para Desenvolvimento:**
+```bash
+# ✅ SEGUIR exatamente:
+npm install          # Instalar dependências
+npm run dev         # Iniciar desenvolvimento
+npm run db:check    # Testar conexão MySQL
+npm run build:static # Gerar build para produção
 ```
 
 ---
