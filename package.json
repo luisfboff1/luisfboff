@@ -5,10 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "eslint",
     "migrate": "tsx src/lib/migration.ts",
-    "export-csv": "tsx -e \"import { MigrationTool } from './src/lib/migration'; MigrationTool.exportToCSV()\""
+    "export-csv": "tsx -e \"import { MigrationTool } from './src/lib/migration'; MigrationTool.exportToCSV()\"",
+    "db:check": "tsx scripts/test-mysql-connection.ts",
+    "db:setup": "tsx scripts/setup-mysql.ts",
+    "deploy:prepare": "npm run build:static && npm run deploy:copy",
+    "deploy:copy": "node scripts/copy-to-hostinger.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
@@ -20,6 +25,7 @@
     "csv-writer": "^1.6.0",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.544.0",
+    "mysql2": "^3.11.5",
     "next": "15.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",

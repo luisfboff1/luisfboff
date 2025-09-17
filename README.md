@@ -15,7 +15,7 @@ O **Megui's Pet** é um sistema administrativo completo para gestão de pet shop
 - **Formulários**: React Hook Form + Zod
 - **Ícones**: Lucide React
 
-### Estrutura do Projeto
+
 
 ```
 meguispet-admin/
@@ -178,7 +178,8 @@ meguispet-admin/
 ### Pré-requisitos
 - Node.js 18+ 
 - npm ou yarn
-- Conta no Supabase (opcional)
+- MySQL na Hostinger (para produção)
+- Conta no Supabase (opcional - para desenvolvimento)
 
 ### Instalação
 ```bash
@@ -190,8 +191,8 @@ cd meguispet-admin
 npm install
 
 # Configure as variáveis de ambiente
-cp .env.example .env.local
-# Edite .env.local com suas credenciais do Supabase
+cp env.example .env.local
+# Edite .env.local com suas credenciais do MySQL Hostinger
 
 # Execute o projeto
 npm run dev
@@ -199,17 +200,44 @@ npm run dev
 
 ### Scripts Disponíveis
 ```bash
-npm run dev          # Desenvolvimento
-npm run build        # Build para produção
-npm run start        # Servidor de produção
-npm run lint         # Verificação de código
-npm run migrate      # Migração de dados
-npm run export-csv   # Exportação CSV
+# Desenvolvimento
+npm run dev              # Servidor de desenvolvimento
+npm run build            # Build para desenvolvimento
+npm run start            # Servidor de produção
+
+# Produção (Hostinger)
+npm run build:static     # Build estático para produção
+npm run deploy:prepare   # Prepara arquivos para deploy
+npm run deploy:copy      # Copia arquivos para pasta deploy/
+
+# Banco de Dados
+npm run db:check         # Testa conexão com MySQL
+npm run db:setup         # Configura banco de dados
+
+# Utilitários
+npm run lint             # Verificação de código
+npm run migrate          # Migração de dados
+npm run export-csv       # Exportação CSV
 ```
 
 ## 🔧 Configuração do Banco de Dados
 
-### Supabase (Recomendado)
+### MySQL Hostinger (Produção)
+1. Siga o guia completo: [HOSTINGER_MYSQL_SETUP.md](./HOSTINGER_MYSQL_SETUP.md)
+2. Configure as variáveis de ambiente no `.env.local`:
+```env
+DATABASE_URL="mysql://usuario:senha@host:porta/banco"
+NEXT_PUBLIC_API_BASE_URL="https://admin.magspatch.com/api"
+```
+3. Teste a conexão: `npm run db:check`
+4. Configure o banco: `npm run db:setup`
+
+### SQLite Local (Desenvolvimento)
+- Os dados são salvos em arquivos JSON na pasta `data/`
+- Ideal para desenvolvimento e testes
+- Migração automática para MySQL quando necessário
+
+### Supabase (Opcional)
 1. Crie um projeto no [Supabase](https://supabase.com)
 2. Execute o script `database-schema.sql` no SQL Editor
 3. Configure as variáveis de ambiente:
@@ -217,11 +245,6 @@ npm run export-csv   # Exportação CSV
 NEXT_PUBLIC_SUPABASE_URL=sua_url_do_supabase
 NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima
 ```
-
-### SQLite Local (Desenvolvimento)
-- Os dados são salvos em arquivos JSON na pasta `data/`
-- Ideal para desenvolvimento e testes
-- Migração automática para Supabase quando necessário
 
 ## 📊 Funcionalidades Principais
 
@@ -257,6 +280,29 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima
 
 ## 🔄 Migração e Importação
 
+### Migração para MySQL Hostinger
+O sistema foi migrado para usar MySQL da Hostinger em produção:
+
+#### Arquitetura de Migração
+- **Desenvolvimento**: Next.js + MySQL remoto
+- **Produção**: Frontend estático + API PHP + MySQL
+- **Compatibilidade**: Mantém todas as funcionalidades
+
+#### Limitações do Modo Estático
+- ❌ **SSR/SSG**: Não suportado (usa client-side rendering)
+- ❌ **API Routes**: Substituídas por PHP
+- ❌ **Middleware**: Não suportado
+- ❌ **ISR**: Não suportado
+- ✅ **Client Components**: Totalmente suportado
+- ✅ **Recharts**: Funciona perfeitamente
+- ✅ **React Hook Form**: Funciona perfeitamente
+
+#### Contratos da API PHP
+- Documentação completa: [PHP_API_CONTRACTS.md](./PHP_API_CONTRACTS.md)
+- Endpoints padronizados para todas as entidades
+- Formato JSON consistente
+- Paginação e filtros
+
 ### Importação CSV
 - **Formatos Suportados**: Produtos, clientes, vendedores
 - **Validação**: Dados obrigatórios e formatos
@@ -264,7 +310,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima
 - **Logs**: Relatório de sucessos e erros
 
 ### Migração de Dados
-- **Local → Supabase**: Migração automática
+- **Local → MySQL**: Migração automática via scripts
 - **Backup**: Exportação completa
 - **Rollback**: Reversão de mudanças
 
@@ -320,20 +366,41 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima
 
 ## 🚀 Deploy e Produção
 
-### Vercel (Recomendado)
-```bash
-# Deploy automático
-vercel --prod
+### Hostinger (Arquitetura Híbrida)
+O sistema foi projetado para funcionar na Hostinger com uma arquitetura híbrida:
 
-# Configuração de variáveis
-vercel env add NEXT_PUBLIC_SUPABASE_URL
-vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY
+#### Desenvolvimento Local
+- Next.js rodando com `npm run dev`
+- Conecta remotamente ao MySQL da Hostinger
+- Todas as funcionalidades disponíveis
+
+#### Produção (Hostinger Compartilhado)
+- **Frontend**: Next.js exportado como arquivos estáticos
+- **Backend**: API PHP simples
+- **Banco**: MySQL da Hostinger
+- **Domínio**: `admin.magspatch.com` (subdomínio)
+
+#### Deploy na Hostinger
+```bash
+# 1. Preparar arquivos para deploy
+npm run deploy:prepare
+
+# 2. Upload via File Manager do hPanel
+# - Pasta deploy/app/ → public_html/admin/app/
+# - Pasta deploy/api/ → public_html/admin/api/
+
+# 3. Configurar credenciais
+# - Editar deploy/api/config.php com credenciais reais
+
+# 4. Testar
+# - Frontend: https://admin.magspatch.com/app/
+# - API: https://admin.magspatch.com/api/health
 ```
 
 ### Outras Plataformas
-- **Netlify**: Compatível com Next.js
-- **Railway**: Deploy simples
-- **Docker**: Containerização disponível
+- **Vercel**: Compatível com Next.js (requer adaptação)
+- **Netlify**: Compatível com Next.js (requer adaptação)
+- **Railway**: Deploy simples (requer adaptação)
 
 ## 📈 Monitoramento e Analytics
 
