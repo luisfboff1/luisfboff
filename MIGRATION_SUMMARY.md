@@ -108,7 +108,7 @@ meguispet-admin/
 1. Execute `npm run deploy:prepare`
 2. Faça upload da pasta `deploy/` para `public_html/admin/`
 3. Configure credenciais em `api/config.php`
-4. Teste o acesso em `https://admin.magspatch.com/app/`
+4. Teste o acesso em `https://admin.meguispet.com/app/`
 
 ## ⚠️ Limitações e Considerações
 
@@ -154,7 +154,7 @@ npm run build:static
 npm run deploy:prepare
 
 # Testar endpoints
-curl https://admin.magspatch.com/api/health
+curl https://admin.meguispet.com/api/health
 ```
 
 ## 📞 Suporte

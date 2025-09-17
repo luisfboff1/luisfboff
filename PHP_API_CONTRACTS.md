@@ -8,7 +8,7 @@ Este documento define os contratos para a API PHP que será implementada na Host
 
 ### Base URL
 ```
-https://admin.magspatch.com/api/
+https://admin.meguispet.com/api/
 ```
 
 ### Headers Padrão
@@ -533,7 +533,7 @@ Authorization: Bearer <token>
 
 ### CORS
 ```php
-header('Access-Control-Allow-Origin: https://admin.magspatch.com');
+header('Access-Control-Allow-Origin: https://admin.meguispet.com');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 ```

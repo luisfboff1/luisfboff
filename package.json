@@ -13,7 +13,8 @@
     "db:check": "tsx scripts/test-mysql-connection.ts",
     "db:setup": "tsx scripts/setup-mysql.ts",
     "deploy:prepare": "npm run build:static && npm run deploy:copy",
-    "deploy:copy": "node scripts/copy-to-hostinger.js"
+    "deploy:copy": "node scripts/copy-to-hostinger.js",
+    "backup:list": "node scripts/list-backups.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

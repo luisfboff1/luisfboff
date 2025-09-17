@@ -227,7 +227,7 @@ npm run export-csv       # Exportação CSV
 2. Configure as variáveis de ambiente no `.env.local`:
 ```env
 DATABASE_URL="mysql://usuario:senha@host:porta/banco"
-NEXT_PUBLIC_API_BASE_URL="https://admin.magspatch.com/api"
+NEXT_PUBLIC_API_BASE_URL="https://admin.meguispet.com/api"
 ```
 3. Teste a conexão: `npm run db:check`
 4. Configure o banco: `npm run db:setup`
@@ -378,7 +378,7 @@ O sistema foi projetado para funcionar na Hostinger com uma arquitetura híbrida
 - **Frontend**: Next.js exportado como arquivos estáticos
 - **Backend**: API PHP simples
 - **Banco**: MySQL da Hostinger
-- **Domínio**: `admin.magspatch.com` (subdomínio)
+- **Domínio**: `admin.meguispet.com` (subdomínio)
 
 #### Deploy na Hostinger
 ```bash
@@ -393,8 +393,8 @@ npm run deploy:prepare
 # - Editar deploy/api/config.php com credenciais reais
 
 # 4. Testar
-# - Frontend: https://admin.magspatch.com/app/
-# - API: https://admin.magspatch.com/api/health
+# - Frontend: https://admin.meguispet.com/app/
+# - API: https://admin.meguispet.com/api/health
 ```
 
 ### Outras Plataformas

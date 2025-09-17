@@ -126,7 +126,7 @@ Este guia passo-a-passo mostra como configurar o banco de dados MySQL na Hosting
 DATABASE_URL="mysql://u123456789_admin:MinhaSenh@123@mysql.hostinger.com:3306/u123456789_meguispet"
 
 # URL base da API PHP em produção
-NEXT_PUBLIC_API_BASE_URL="https://admin.magspatch.com/api"
+NEXT_PUBLIC_API_BASE_URL="https://admin.meguispet.com/api"
 
 # Ambiente atual
 NODE_ENV="development"
@@ -212,7 +212,7 @@ node test-connection.js
 
 ### 10.1 Subdomínio
 1. No hPanel, vá em **"Domínios"**
-2. Crie subdomínio: `admin.magspatch.com`
+2. Crie subdomínio: `admin.meguispet.com`
 3. Aponte para pasta: `public_html/admin`
 
 ### 10.2 Estrutura de Pastas
