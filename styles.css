@@ -612,11 +612,13 @@ section {
 */
 .timeline-container {
     margin: 4rem 0;
-    padding: 3rem 0;
+    padding: 3rem 2rem;
     background: var(--bg-primary);
     border-radius: 20px;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 .timeline-container::before {
@@ -1266,13 +1268,291 @@ section {
     .hero-visual .terminal-window {
         max-width: 95%;
     }
-    
-    .profile-img {
-        width: 240px;
-        height: 240px;
+}
+
+/* ============================================ */
+/* 🤖 LUISBOT - WIDGET DE CHAT */
+/* ============================================ */
+
+.chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 1;
+    visibility: visible;
+}
+
+.chat-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 99, 235, 0.4);
+}
+
+.ai-chat-widget {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 450px;
+    height: 600px;
+    background: var(--gradient-card);
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    z-index: 1001;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+.chat-header {
+    padding: 1rem;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+    position: relative;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.chat-header p {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.close-chat {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.close-chat:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.suggested-questions {
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    max-height: 140px;
+    overflow-y: auto;
+}
+
+.suggested-questions p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.suggested-questions button {
+    display: block;
+    width: 100%;
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.suggested-questions button:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateX(2px);
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.message {
+    max-width: 85%;
+    padding: 0.85rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+    margin-left: 20%;
+    border-bottom-right-radius: 4px;
+}
+
+.ai-message {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    align-self: flex-start;
+    margin-right: 20%;
+    border: 1px solid var(--border-color);
+    border-bottom-left-radius: 4px;
+}
+
+.ai-message p {
+    margin: 0;
+}
+
+.typing-indicator {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.typing-dots {
+    animation: typingDots 1.4s ease-in-out infinite;
+}
+
+@keyframes typingDots {
+    0%, 60%, 100% { opacity: 0.3; }
+    30% { opacity: 1; }
+}
+
+.chat-input {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 0.5rem;
+    background: var(--bg-primary);
+    border-radius: 0 0 15px 15px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.chat-input input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.chat-input input::placeholder {
+    color: var(--text-secondary);
+}
+
+.chat-input button {
+    padding: 0.75rem 1rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.chat-input button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.chat-input button:active {
+    transform: translateY(0);
+}
+
+/* Responsivo para o LuisBot */
+@media (max-width: 768px) {
+    .ai-chat-widget {
+        width: calc(100vw - 40px);
+        height: 400px;
+        bottom: 80px;
+        right: 20px;
+        left: 20px;
     }
     
-    /* Timeline responsive */
+    .chat-toggle {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .suggested-questions {
+        max-height: 100px;
+    }
+    
+    .suggested-questions button {
+        font-size: 0.75rem;
+        padding: 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ai-chat-widget {
+        height: 350px;
+        bottom: 70px;
+    }
+    
+    .chat-messages {
+        padding: 0.75rem;
+    }
+    
+    .message {
+        font-size: 0.85rem;
+        padding: 0.6rem;
+    }
+}
+
+/* Ajuste para imagem do perfil */
+.profile-img {
+    width: 240px;
+    height: 240px;
+}
+
+/* Timeline responsive */
+@media (max-width: 768px) {
     .timeline-container {
         padding: 2rem 1rem;
     }

@@ -20,6 +20,13 @@ jobs:
         echo "📄 Arquivos encontrados:"
         ls -la
         
+    - name: 🔧 Configurar API Key do LuisBot
+      run: |
+        echo "🤖 Configurando LuisBot..."
+        # Substitui placeholder pela API key real
+        sed -i "s/API_KEY_PLACEHOLDER/${{ secrets.GROQ_API_KEY }}/g" ai-assistant.js
+        echo "✅ API Key configurada com sucesso!"
+        
     - name: 🚀 Deploy via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:

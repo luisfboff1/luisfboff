@@ -357,39 +357,11 @@ document.addEventListener('DOMContentLoaded', function() {
     new ParticleSystem();
 });
 
-// ===== THEME TOGGLE (BONUS) =====
-function createThemeToggle() {
-    const toggle = document.createElement('button');
-    toggle.innerHTML = '🌙';
-    toggle.className = 'theme-toggle';
-    toggle.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: none;
-        background: var(--gradient-primary);
-        color: var(--bg-primary);
-        font-size: 1.2rem;
-        cursor: pointer;
-        z-index: 1000;
-        transition: var(--transition-normal);
-        box-shadow: 0 4px 15px var(--shadow-color);
-    `;
-    
-    toggle.addEventListener('click', function() {
-        document.body.classList.toggle('light-theme');
-        toggle.innerHTML = document.body.classList.contains('light-theme') ? '☀️' : '🌙';
-    });
-    
-    document.body.appendChild(toggle);
-}
+// ===== THEME TOGGLE REMOVIDO =====
+// Botão de dark/light mode removido para dar espaço ao LuisBot
 
-// Initialize theme toggle
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
-    createThemeToggle();
     
     // Initialize GitHub integration
     const projectsUpdater = new ProjectsUpdater();
