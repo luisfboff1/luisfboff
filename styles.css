@@ -361,8 +361,10 @@ body {
 /* Hero Visual Content */
 .hero-visual {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
 }
 
 /* Profile Photo */
@@ -372,15 +374,10 @@ body {
     animation: slideInLeft 1s ease forwards 1s;
 }
 
-/* Hero Terminal Section */
-.hero-terminal-section {
-    padding: 3rem 0;
-    background: var(--bg-secondary);
-}
-
-.hero-terminal-section .terminal-window {
+/* Terminal embaixo da foto */
+.hero-visual .terminal-window {
     max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
     opacity: 0;
     animation: slideInUp 1s ease forwards 1.5s;
 }
@@ -649,7 +646,7 @@ section {
     content: '';
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 60px;
     bottom: 0;
     width: 4px;
     background: linear-gradient(
@@ -1213,12 +1210,12 @@ section {
         gap: 2rem;
     }
     
-    .hero-terminal-section {
-        padding: 2rem 0;
+    .hero-visual {
+        gap: 2rem;
     }
     
-    .hero-terminal-section .terminal-window {
-        max-width: 90%;
+    .hero-visual .terminal-window {
+        max-width: 95%;
     }
     
     .profile-img {
@@ -1233,6 +1230,7 @@ section {
     
     .timeline::before {
         left: 30px;
+        top: 50px;
     }
     
     .timeline-item::before {
@@ -1314,8 +1312,8 @@ section {
         height: 180px;
     }
     
-    .hero-terminal-section {
-        padding: 1.5rem 0;
+    .hero-visual {
+        gap: 1.5rem;
     }
     
     /* Timeline mobile */
