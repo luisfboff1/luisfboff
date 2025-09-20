@@ -384,22 +384,16 @@
             <button class="close-chat" onclick="toggleChat()">×</button>
         </div>
         
-        <div class="suggested-questions">
-            <p>💡 Perguntas sugeridas:</p>
-            <button onclick="askSuggested('Qual a experiência do Luis?')">
-                Qual a experiência do Luis?
-            </button>
-            <button onclick="askSuggested('Quais projetos ele desenvolveu?')">
-                Quais projetos ele desenvolveu?
-            </button>
-            <button onclick="askSuggested('Como entrar em contato?')">
-                Como entrar em contato?
-            </button>
-        </div>
+            <div class="suggested-questions">
+                <p>💡 <span class="suggested-title">Perguntas:</span></p>
+                <button onclick="askSuggested('Experiência do Luis?')">Experiência</button>
+                <button onclick="askSuggested('Projetos desenvolvidos?')">Projetos</button>
+                <button onclick="askSuggested('Contato?')">Contato</button>
+            </div>
         
         <div class="chat-messages" id="chat-messages">
             <div class="message ai-message">
-                <p>Olá! Sou o LuisBot, IA desenvolvida por Luis Fernando Boff! 🤖</p>
+                <p>Olá! Sou o LuisBot, assistente IA desenvolvido por Luis Fernando Boff! 🤖</p>
                 <p>Posso responder perguntas sobre a experiência, projetos e habilidades do Luis.</p>
                 <p>Como posso ajudar você hoje?</p>
             </div>

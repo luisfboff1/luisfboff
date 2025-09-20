@@ -1362,40 +1362,45 @@ section {
 }
 
 .suggested-questions {
-    padding: 1rem;
+    padding: 0.75rem;
     background: var(--bg-secondary);
     border-bottom: 1px solid var(--border-color);
-    max-height: 140px;
+    max-height: 80px;
     overflow-y: auto;
 }
 
 .suggested-questions p {
-    margin: 0 0 0.5rem 0;
-    font-size: 0.9rem;
+    margin: 0 0 0.4rem 0;
+    font-size: 0.75rem;
     color: var(--text-secondary);
     font-weight: 600;
 }
 
+.suggested-questions .suggested-title {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
 .suggested-questions button {
-    display: block;
-    width: 100%;
-    margin: 0.25rem 0;
-    padding: 0.5rem;
+    display: inline-block;
+    width: auto;
+    margin: 0.15rem 0.25rem 0.15rem 0;
+    padding: 0.35rem 0.6rem;
     background: var(--bg-primary);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 6px;
     color: var(--text-primary);
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     transition: all 0.2s ease;
-    text-align: left;
+    text-align: center;
 }
 
 .suggested-questions button:hover {
     background: var(--primary-color);
     color: white;
     border-color: var(--primary-color);
-    transform: translateX(2px);
+    transform: translateY(-1px);
 }
 
 .chat-messages {
@@ -1520,12 +1525,19 @@ section {
     }
     
     .suggested-questions {
-        max-height: 100px;
+        max-height: 60px;
+        padding: 0.5rem;
     }
     
     .suggested-questions button {
-        font-size: 0.75rem;
-        padding: 0.4rem;
+        font-size: 0.65rem;
+        padding: 0.25rem 0.4rem;
+        margin: 0.1rem 0.15rem 0.1rem 0;
+    }
+    
+    .suggested-questions p {
+        font-size: 0.7rem;
+        margin: 0 0 0.3rem 0;
     }
 }
 
