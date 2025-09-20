@@ -23,9 +23,9 @@ jobs:
     - name: 🚀 Deploy via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: 77.37.127.128
-        username: u903000160
-        password: Poker2025!
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
         port: 21
         protocol: ftp
         server-dir: /public_html/
