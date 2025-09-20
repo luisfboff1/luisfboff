@@ -6,34 +6,39 @@
 }
 
 :root {
-    /* Cores principais - Tema Dark Code */
-    --primary-color: #00ff88;
-    --secondary-color: #ff6b35;
-    --accent-color: #8b5cf6;
+    /* Cores principais - Tema Profissional Híbrido */
+    --primary-color: #2563eb;        /* Azul profissional */
+    --primary-light: #3b82f6;        /* Azul mais claro */
+    --secondary-color: #f59e0b;      /* Âmbar elegante */
+    --accent-color: #6366f1;         /* Índigo sofisticado */
+    --success-color: #10b981;        /* Verde sucesso */
     --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --text-muted: #666666;
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #111111;
-    --bg-tertiary: #1a1a1a;
-    --bg-card: #1e1e1e;
-    --border-color: #333333;
-    --shadow-color: rgba(0, 255, 136, 0.1);
+    --text-secondary: #e5e7eb;
+    --text-muted: #9ca3af;
+    --text-dark: #1f2937;
+    --bg-primary: #111827;           /* Cinza escuro elegante */
+    --bg-secondary: #1f2937;         /* Cinza médio */
+    --bg-tertiary: #374151;          /* Cinza mais claro */
+    --bg-card: #1f2937;
+    --border-color: #374151;
+    --shadow-color: rgba(37, 99, 235, 0.1);
     
     /* Gradientes */
-    --gradient-primary: linear-gradient(135deg, #00ff88, #00cc6a);
-    --gradient-secondary: linear-gradient(135deg, #ff6b35, #ff8c42);
-    --gradient-accent: linear-gradient(135deg, #8b5cf6, #a855f7);
-    --gradient-bg: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    --gradient-primary: linear-gradient(135deg, #2563eb, #3b82f6);
+    --gradient-secondary: linear-gradient(135deg, #f59e0b, #fbbf24);
+    --gradient-accent: linear-gradient(135deg, #6366f1, #8b5cf6);
+    --gradient-bg: linear-gradient(135deg, #111827, #1f2937);
+    --gradient-card: linear-gradient(145deg, #1f2937, #374151);
     
     /* Fontes */
-    --font-primary: 'Orbitron', monospace;
-    --font-secondary: 'Source Code Pro', monospace;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-secondary: 'JetBrains Mono', 'Source Code Pro', monospace;
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     
     /* Transições */
-    --transition-fast: 0.2s ease;
-    --transition-normal: 0.3s ease;
-    --transition-slow: 0.5s ease;
+    --transition-fast: 0.15s ease-out;
+    --transition-normal: 0.25s ease-out;
+    --transition-slow: 0.4s ease-out;
 }
 
 html {
@@ -41,11 +46,14 @@ html {
 }
 
 body {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     background: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -77,11 +85,11 @@ body {
 }
 
 .nav-logo .logo-text {
-    font-family: var(--font-primary);
+    font-family: var(--font-display);
     font-size: 1.5rem;
-    font-weight: 900;
+    font-weight: 700;
     color: var(--primary-color);
-    text-shadow: 0 0 10px var(--primary-color);
+    letter-spacing: -0.02em;
 }
 
 .nav-menu {
@@ -200,11 +208,12 @@ body {
 }
 
 .hero-title {
-    font-family: var(--font-primary);
+    font-family: var(--font-display);
     font-size: 3.5rem;
-    font-weight: 900;
+    font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
 }
 
 .title-line {
@@ -255,39 +264,44 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 12px 24px;
+    padding: 14px 28px;
     border: none;
     border-radius: 8px;
-    font-family: var(--font-secondary);
-    font-weight: 600;
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 0.95rem;
     text-decoration: none;
     transition: var(--transition-normal);
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    letter-spacing: 0.01em;
 }
 
 .btn-primary {
     background: var(--gradient-primary);
-    color: var(--bg-primary);
-    box-shadow: 0 4px 15px var(--shadow-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px var(--shadow-color);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
 }
 
 .btn-secondary {
     background: transparent;
     color: var(--text-primary);
-    border: 2px solid var(--border-color);
+    border: 1.5px solid var(--border-color);
+    backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
     border-color: var(--primary-color);
     color: var(--primary-color);
-    transform: translateY(-2px);
+    background: rgba(37, 99, 235, 0.05);
+    transform: translateY(-1px);
 }
 
 /* Terminal Window */
@@ -326,9 +340,10 @@ body {
 .btn-maximize { background: #27ca3f; }
 
 .terminal-title {
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
     font-size: 0.9rem;
     color: var(--text-secondary);
+    font-weight: 500;
 }
 
 .terminal-body {
@@ -362,45 +377,43 @@ body {
     height: 280px;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid var(--primary-color);
+    border: 3px solid var(--primary-color);
     box-shadow: 
-        0 0 30px rgba(0, 255, 136, 0.3),
-        0 0 60px rgba(0, 255, 136, 0.2),
-        0 0 90px rgba(0, 255, 136, 0.1);
+        0 20px 40px rgba(37, 99, 235, 0.15),
+        0 8px 16px rgba(0, 0, 0, 0.1);
     transition: var(--transition-normal);
     position: relative;
     z-index: 2;
 }
 
 .profile-img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     box-shadow: 
-        0 0 40px rgba(0, 255, 136, 0.5),
-        0 0 80px rgba(0, 255, 136, 0.3),
-        0 0 120px rgba(0, 255, 136, 0.2);
+        0 25px 50px rgba(37, 99, 235, 0.2),
+        0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .photo-glow {
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
     border-radius: 50%;
     background: var(--gradient-primary);
-    opacity: 0.1;
+    opacity: 0.05;
     z-index: 1;
-    animation: pulse 2s ease-in-out infinite;
+    animation: pulse 3s ease-in-out infinite;
 }
 
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
-        opacity: 0.1;
+        opacity: 0.05;
     }
     50% {
-        transform: scale(1.1);
-        opacity: 0.2;
+        transform: scale(1.05);
+        opacity: 0.1;
     }
 }
 
@@ -573,14 +586,15 @@ section {
 }
 
 .service-card {
-    background: var(--bg-card);
+    background: var(--gradient-card);
     padding: 2.5rem;
-    border-radius: 12px;
+    border-radius: 16px;
     border: 1px solid var(--border-color);
     text-align: center;
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .service-card::before {
@@ -590,7 +604,7 @@ section {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
     transition: var(--transition-slow);
 }
 
@@ -599,22 +613,23 @@ section {
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     border-color: var(--primary-color);
-    box-shadow: 0 20px 40px var(--shadow-color);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
 }
 
 .service-icon {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     margin: 0 auto 1.5rem;
     background: var(--gradient-primary);
-    border-radius: 50%;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    color: var(--bg-primary);
+    font-size: 1.8rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
 }
 
 .service-card h3 {
