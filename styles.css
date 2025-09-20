@@ -599,7 +599,17 @@ section {
     font-size: 0.9rem;
 }
 
-/* ===== TIMELINE STYLES ===== */
+/* ============================================ */
+/* 🗺️ MAPA DA JORNADA PROFISSIONAL - TIMELINE */
+/* ============================================ */
+/* 
+🎯 GUIA DE AJUSTES:
+- Linha 694: Altura das DATAS (menor=sobe, maior=desce)
+- Linha 726: BOLINHA AZUL (não mexer - é referência)
+- Linha 782: Altura dos CARTÕES (menor=sobe, maior=desce)  
+- Linha 811: Conectores das DATAS (para alinhar com bolinha)
+- Linha 836: Conectores dos CARTÕES (para alinhar com bolinha)
+*/
 .timeline-container {
     margin: 4rem 0;
     padding: 3rem 0;
@@ -646,7 +656,7 @@ section {
     content: '';
     position: absolute;
     left: 50%;
-    top: 60px;
+    top: 100px;
     bottom: 0;
     width: 4px;
     background: linear-gradient(
@@ -687,13 +697,11 @@ section {
     }
 }
 
-/* Marcador de Ano */
+/* Marcador de Ano - Base */
 .timeline-item::before {
     content: attr(data-year);
     position: absolute;
-    left: 50%;
-    top: -20px;
-    transform: translateX(-50%);
+    top: 0px; /* 🎯 MEXER AQUI: Menor = sobe, Maior = desce */
     background: var(--gradient-primary);
     color: white;
     padding: 0.8rem 1.5rem;
@@ -707,11 +715,25 @@ section {
     text-align: center;
 }
 
-/* Marcadores da Trilha */
+/* Datas nos ítens ímpares (cartão à direita, data à esquerda) */
+.timeline-item:nth-child(odd)::before {
+    left: calc(50% - 100px); /* Mais longe da trilha */
+    transform: translateX(-50%);
+}
+
+/* Datas nos ítens pares (cartão à esquerda, data à direita) */
+.timeline-item:nth-child(even)::before {
+    right: calc(50% - 100px); /* Mais longe da trilha */
+    transform: translateX(50%);
+}
+
+/* ============================================ */
+/* 🔵 BOLINHA AZUL (NÃO MEXER - É A REFERÊNCIA) */
+/* ============================================ */
 .timeline-marker {
     position: absolute;
     left: 50%;
-    top: 30px;
+    top: 15px; /* ← REFERÊNCIA: NÃO MEXER NESTE VALOR */
     width: 24px;
     height: 24px;
     background: var(--primary-color);
@@ -759,13 +781,15 @@ section {
     }
 }
 
-/* Cartões da Timeline */
+/* ============================================ */
+/* 📦 AJUSTAR ALTURA DOS CARTÕES (CAIXAS DE TEXTO) */
+/* ============================================ */
 .timeline-content {
     background: var(--gradient-card);
     padding: 2.5rem;
     border-radius: 20px;
     border: 1px solid var(--border-color);
-    margin-top: 60px;
+    margin-top: 35px; /* 🎯 MEXER AQUI: Menor = sobe, Maior = desce */
     backdrop-filter: blur(15px);
     box-shadow: 
         0 15px 35px rgba(0, 0, 0, 0.1),
@@ -783,30 +807,55 @@ section {
 
 /* Alternância Esquerda/Direita */
 .timeline-item:nth-child(odd) .timeline-content {
-    margin-left: calc(50% + 60px);
+    margin-left: calc(50% + 30px);
 }
 
 .timeline-item:nth-child(even) .timeline-content {
-    margin-right: calc(50% + 60px);
+    margin-right: calc(50% + 30px);
 }
 
-/* Conectores dos Cartões */
+/* Conectores das Datas para a Trilha */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 25px; /* 🎯 MEXER AQUI: Para alinhar com a bolinha azul */
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    z-index: 2;
+}
+
+/* Conector da data à esquerda para a trilha */
+.timeline-item:nth-child(odd)::after {
+    left: calc(50% - 50px); /* Saindo da data */
+    width: 50px; /* Chegando na bolinha */
+}
+
+/* Conector da data à direita para a trilha */
+.timeline-item:nth-child(even)::after {
+    right: calc(50% - 50px); /* Saindo da data */
+    width: 50px; /* Chegando na bolinha */
+}
+
+/* ============================================ */
+/* 🔗 AJUSTAR CONECTORES DOS CARTÕES (LINHAS DOS CARTÕES) */
+/* ============================================ */
 .timeline-content::before {
     content: '';
     position: absolute;
-    top: 30px;
-    width: 20px;
+    top: 25px; /* 🎯 MEXER AQUI: Para alinhar com a bolinha azul */
+    width: 30px;
     height: 3px;
     background: var(--primary-color);
     border-radius: 2px;
 }
 
 .timeline-item:nth-child(odd) .timeline-content::before {
-    left: -20px;
+    left: -30px;
 }
 
 .timeline-item:nth-child(even) .timeline-content::before {
-    right: -20px;
+    right: -30px;
 }
 
 .timeline-content h4 {
@@ -1230,7 +1279,7 @@ section {
     
     .timeline::before {
         left: 30px;
-        top: 50px;
+        top: 80px;
     }
     
     .timeline-item::before {
@@ -1238,14 +1287,37 @@ section {
         transform: translateX(-50%);
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
-        top: -25px;
+        top: 100px;
+    }
+    
+    /* Mobile: todas as datas à esquerda */
+    .timeline-item:nth-child(odd)::before,
+    .timeline-item:nth-child(even)::before {
+        left: 30px;
+        right: auto;
+        transform: translateX(-50%);
+    }
+    
+    /* Mobile: conectores das datas */
+    .timeline-item::after {
+        top: 113px;
+        left: 70px;
+        width: 50px;
+        right: auto;
+    }
+    
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 70px;
+        width: 50px;
+        right: auto;
     }
     
     .timeline-marker {
         left: 30px;
         width: 20px;
         height: 20px;
-        top: 25px;
+        top: 55px;
     }
     
     .timeline-marker.current {
@@ -1333,7 +1405,7 @@ section {
     
     .timeline-content {
         padding: 1.8rem;
-        margin-top: 50px;
+        margin-top: 80px;
     }
     
     .timeline-content h4 {
