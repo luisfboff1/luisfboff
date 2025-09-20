@@ -359,11 +359,10 @@ body {
 }
 
 /* Hero Visual Content */
-.hero-visual-content {
+.hero-visual {
     display: flex;
-    align-items: center;
-    gap: 2rem;
     justify-content: center;
+    align-items: center;
 }
 
 /* Profile Photo */
@@ -371,6 +370,19 @@ body {
     position: relative;
     opacity: 0;
     animation: slideInLeft 1s ease forwards 1s;
+}
+
+/* Hero Terminal Section */
+.hero-terminal-section {
+    padding: 3rem 0;
+    background: var(--bg-secondary);
+}
+
+.hero-terminal-section .terminal-window {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: slideInUp 1s ease forwards 1.5s;
 }
 
 .profile-img {
@@ -426,6 +438,17 @@ body {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -672,7 +695,7 @@ section {
     content: attr(data-year);
     position: absolute;
     left: 50%;
-    top: 0;
+    top: -20px;
     transform: translateX(-50%);
     background: var(--gradient-primary);
     color: white;
@@ -691,7 +714,7 @@ section {
 .timeline-marker {
     position: absolute;
     left: 50%;
-    top: 50px;
+    top: 30px;
     width: 24px;
     height: 24px;
     background: var(--primary-color);
@@ -745,7 +768,7 @@ section {
     padding: 2.5rem;
     border-radius: 20px;
     border: 1px solid var(--border-color);
-    margin-top: 80px;
+    margin-top: 60px;
     backdrop-filter: blur(15px);
     box-shadow: 
         0 15px 35px rgba(0, 0, 0, 0.1),
@@ -1190,9 +1213,12 @@ section {
         gap: 2rem;
     }
     
-    .hero-visual-content {
-        flex-direction: column;
-        gap: 1.5rem;
+    .hero-terminal-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-terminal-section .terminal-window {
+        max-width: 90%;
     }
     
     .profile-img {
@@ -1214,13 +1240,14 @@ section {
         transform: translateX(-50%);
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
+        top: -25px;
     }
     
     .timeline-marker {
         left: 30px;
         width: 20px;
         height: 20px;
-        top: 45px;
+        top: 25px;
     }
     
     .timeline-marker.current {
@@ -1287,8 +1314,8 @@ section {
         height: 180px;
     }
     
-    .hero-visual-content {
-        gap: 1rem;
+    .hero-terminal-section {
+        padding: 1.5rem 0;
     }
     
     /* Timeline mobile */
@@ -1308,7 +1335,7 @@ section {
     
     .timeline-content {
         padding: 1.8rem;
-        margin-top: 70px;
+        margin-top: 50px;
     }
     
     .timeline-content h4 {
