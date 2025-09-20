@@ -342,6 +342,68 @@ body {
     margin-bottom: 8px;
 }
 
+/* Hero Visual Content */
+.hero-visual-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Profile Photo */
+.profile-photo {
+    position: relative;
+    opacity: 0;
+    animation: slideInLeft 1s ease forwards 1s;
+}
+
+.profile-img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    box-shadow: 
+        0 0 30px rgba(0, 255, 136, 0.3),
+        0 0 60px rgba(0, 255, 136, 0.2),
+        0 0 90px rgba(0, 255, 136, 0.1);
+    transition: var(--transition-normal);
+    position: relative;
+    z-index: 2;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 40px rgba(0, 255, 136, 0.5),
+        0 0 80px rgba(0, 255, 136, 0.3),
+        0 0 120px rgba(0, 255, 136, 0.2);
+}
+
+.photo-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    opacity: 0.1;
+    z-index: 1;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.2;
+    }
+}
+
 .prompt {
     color: var(--primary-color);
     font-weight: 600;
@@ -846,6 +908,16 @@ section {
         gap: 2rem;
     }
     
+    .hero-visual-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
     }
@@ -882,6 +954,15 @@ section {
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
+    }
+    
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .hero-visual-content {
+        gap: 1rem;
     }
     
     .section-title {
