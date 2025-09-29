@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Luis Fernando Boff - Desenvolvedor & Engenheiro - Portfolio Profissional</title>
     <meta name="description" content="Desenvolvedor Full Stack, Engenheiro, Especialista em IA e Ciência de Dados. Transformando ideias em soluções tecnológicas inovadoras.">
     
@@ -21,14 +21,15 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-text">&lt;LFB&gt;</span>
+                <a href="index.html"><span class="logo-text">&lt;LFB&gt;</span></a>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Início1</a></li>
-                <li><a href="#about" class="nav-link">Sobre</a></li>
-                <li><a href="#services" class="nav-link">Serviços</a></li>
-                <li><a href="#projects" class="nav-link">Projetos</a></li>
-                <li><a href="#contact" class="nav-link">Contato</a></li>
+                <li><a href="index.html" class="nav-link active">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="desenvolvimento.html" class="nav-link">Desenvolvimento</a></li>
+                <li><a href="energia-solar.html" class="nav-link">Energia Solar</a></li>
+                <li><a href="ciencia-dados.html" class="nav-link">Ciência de Dados</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contato</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -53,22 +54,22 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">
-                    <span class="title-line">Desenvolvedor</span>
-                    <span class="title-line">Engenheiro</span>
-                    <span class="title-line highlight">Inovador</span>
+                    <span class="title-line">Luis Fernando</span>
+                    <span class="title-line">Boff</span>
+                    <span class="title-line highlight">Portfolio</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Transformando ideias em <span class="code-text">soluções tecnológicas</span><br>
-                    através de <span class="magic-text">código, dados e inteligência artificial</span>
+                    Explore as diferentes áreas de atuação<br>
+                    <span class="code-text">Desenvolvimento</span> • <span class="magic-text">Energia Solar</span> • <span class="accent-text">Ciência de Dados</span>
                 </p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i>
-                        Ver Projetos
+                    <a href="sobre.html" class="btn btn-primary">
+                        <i class="fas fa-user"></i>
+                        Sobre Mim
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i>
-                        Vamos Conversar
+                    <a href="#specializations" class="btn btn-secondary">
+                        <i class="fas fa-arrow-down"></i>
+                        Ver Especializações
                     </a>
                 </div>
             </div>
@@ -91,22 +92,16 @@
                     <div class="terminal-body">
                         <div class="terminal-line">
                             <span class="prompt">$</span>
-                            <span class="command">Quem sou eu</span>
-                        </div>
-                        <div class="terminal-output">Luis Fernando Boff</div>
-                        <div class="terminal-line">
-                            <span class="prompt">$</span>
-                            <span class="command">cat Habilidades.txt</span>
+                            <span class="command">ls especializacoes/</span>
                         </div>
                         <div class="terminal-output">
-                            Cientista de Dados na EvcomX<br>
-                            Desenvolvedor Full Stack<br>
-                            Projetista de Energia Solar<br>
-                            Pesquisador & Inovador
+                            desenvolvimento/<br>
+                            energia-solar/<br>
+                            ciencia-dados/
                         </div>
                         <div class="terminal-line">
                             <span class="prompt">$</span>
-                            <span class="command typing">echo "Transformando dados em soluções"</span>
+                            <span class="command typing">echo "Escolha sua área de interesse"</span>
                         </div>
                     </div>
                 </div>
@@ -114,195 +109,78 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Specializations Section -->
+    <section id="specializations" class="specializations">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Sobre Mim</h2>
-                <p class="section-subtitle">A jornada épica de um engenheiro que se tornou cientista de dados</p>
+                <h2 class="section-title">Especializações</h2>
+                <p class="section-subtitle">Explore as diferentes áreas de atuação do Luis Fernando Boff</p>
             </div>
             
-            <!-- Career Timeline -->
-            <div class="timeline-container">
-                <h3 class="timeline-title">🗺️ Mapa da Jornada Profissional</h3>
-                <div class="timeline">
-                    <div class="timeline-item" data-year="2016">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h4>🚀 Primeiro Contato</h4>
-                            <p><strong>DataBoff (07/2016)</strong></p>
-                            <p>Estagiário - Primeiro contato com programação, suporte ao cliente e resolução de problemas básicos</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-year="2018">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h4>⚡ Energia & Sustentabilidade</h4>
-                            <p><strong>Petinelli Inc. (09/2018 - 09/2020)</strong></p>
-                            <p>Estagiário em projetos elétricos, certificação LEED e sistemas fotovoltaicos. Domínio de AutoCAD, PVSyst e análises de viabilidade</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-year="2021">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h4>🏗️ Engenheiro Autônomo</h4>
-                            <p><strong>Projetista Independente (06/2021 - Atual)</strong></p>
-                            <p>Mais de 70 projetos fotovoltaicos aprovados. Especialista em geração distribuída, autoconsumo remoto e análises financeiras</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-year="2023">
-                        <div class="timeline-marker highlight"></div>
-                        <div class="timeline-content">
-                            <h4>🎓 Professor & Pesquisador</h4>
-                            <p><strong>UCS & UFRGS (02/2023 - Atual)</strong></p>
-                            <p>Professor de Empreendedorismo na UCS. Mestrado em UFRGS desenvolvendo IA para casas inteligentes com ML e otimização</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item current" data-year="2025">
-                        <div class="timeline-marker current"></div>
-                        <div class="timeline-content">
-                            <h4>📊 Cientista de Dados</h4>
-                            <p><strong>EvcomX (01/2025 - Atual)</strong></p>
-                            <p>Liderando projetos de análise de dados, desenvolvimento de aplicações e pesquisa em IA</p>
-                            <div class="current-roles">
-                                <span class="role-tag">Cientista de Dados</span>
-                                <span class="role-tag">Desenvolvedor Full Stack</span>
-                                <span class="role-tag">Engenheiro Solar</span>
-                                <span class="role-tag">Professor & Pesquisador</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stats Section -->
-            <div class="about-stats">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="70">0</div>
-                    <div class="stat-label">Projetos Fotovoltaicos</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="9">0</div>
-                    <div class="stat-label">Anos de Experiência</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="25">0</div>
-                    <div class="stat-label">Tecnologias Dominadas</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="4">0</div>
-                    <div class="stat-label">Concessionárias Aprovadas</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Serviços</h2>
-                <p class="section-subtitle">Soluções tecnológicas para transformar seu negócio</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
+            <div class="specializations-grid">
+                <div class="specialization-card">
+                    <div class="specialization-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Desenvolvimento Full Stack</h3>
-                    <p>Aplicações web modernas com React, Node.js, Python e muito mais</p>
-                    <ul class="service-tech">
+                    <h3>Desenvolvimento</h3>
+                    <p>Desenvolvimento Full Stack com React, Node.js, Python e muito mais</p>
+                    <ul class="specialization-tech">
                         <li>Frontend: React, Next.js, TypeScript</li>
                         <li>Backend: Node.js, Python, PHP</li>
-                        <li>Database: MySQL, PostgreSQL, MongoDB</li>
+                        <li>Mobile: React Native, Flutter</li>
+                        <li>Cloud: AWS, Azure, Docker</li>
                     </ul>
+                    <a href="desenvolvimento.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        Ver Desenvolvimento
+                    </a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Inteligência Artificial</h3>
-                    <p>Soluções de IA e Machine Learning para automatizar processos</p>
-                    <ul class="service-tech">
-                        <li>Machine Learning: Python, TensorFlow</li>
-                        <li>Deep Learning: PyTorch, Keras</li>
-                        <li>NLP: Processamento de linguagem natural</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Ciência de Dados</h3>
-                    <p>Análise de dados e insights para tomada de decisões estratégicas</p>
-                    <ul class="service-tech">
-                        <li>Análise: Python, R, SQL, Pandas</li>
-                        <li>Visualização: Tableau, Power BI</li>
-                        <li>Big Data: Apache Spark, Hadoop</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Desenvolvimento Mobile</h3>
-                    <p>Aplicativos nativos e híbridos para iOS e Android</p>
-                    <ul class="service-tech">
-                        <li>React Native</li>
-                        <li>Flutter</li>
-                        <li>Swift, Kotlin</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
+                
+                <div class="specialization-card">
+                    <div class="specialization-icon">
                         <i class="fas fa-solar-panel"></i>
                     </div>
-                    <h3>Projetos de Energia Solar</h3>
-                    <p>Soluções sustentáveis e eficientes em energia renovável</p>
-                    <ul class="service-tech">
-                        <li>Dimensionamento de sistemas</li>
-                        <li>Análise de viabilidade</li>
-                        <li>Monitoramento inteligente</li>
+                    <h3>Energia Solar</h3>
+                    <p>Projetos fotovoltaicos e soluções sustentáveis em energia renovável</p>
+                    <ul class="specialization-tech">
+                        <li>Mais de 70 projetos aprovados</li>
+                        <li>4 concessionárias aprovadas</li>
+                        <li>Ferramentas: AutoCAD, PVSyst</li>
+                        <li>Análises de viabilidade</li>
                     </ul>
+                    <a href="energia-solar.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        Ver Energia Solar
+                    </a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
+                
+                <div class="specialization-card">
+                    <div class="specialization-icon">
+                        <i class="fas fa-brain"></i>
                     </div>
-                    <h3>Cloud & DevOps</h3>
-                    <p>Infraestrutura escalável e deploy automatizado</p>
-                    <ul class="service-tech">
-                        <li>AWS, Azure, Hostinger, Vercel</li>
-                        <li>Docker, Kubernetes</li>
-                        <li>CI/CD, GitHub Actions</li>
+                    <h3>Ciência de Dados</h3>
+                    <p>Análise de dados, IA e Machine Learning para insights valiosos</p>
+                    <ul class="specialization-tech">
+                        <li>Python, R, SQL, Pandas</li>
+                        <li>TensorFlow, PyTorch</li>
+                        <li>Tableau, Power BI</li>
+                        <li>Pesquisa em IA</li>
                     </ul>
+                    <a href="ciencia-dados.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        Ver Ciência de Dados
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Projetos</h2>
-                <p class="section-subtitle">Alguns dos projetos que transformaram ideias em realidade</p>
-            </div>
-            <div class="projects-grid">
-                <!-- Projetos serão carregados dinamicamente do GitHub -->
-            </div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Vamos Construir Algo Incrível</h2>
+                <h2 class="section-title">Entre em Contato</h2>
                 <p class="section-subtitle">Pronto para transformar sua ideia em realidade?</p>
             </div>
             <div class="contact-content">
@@ -331,29 +209,9 @@
                         </div>
                         <div class="contact-details">
                             <h4>GitHub</h4>
-                            <p>github.com/luisfboff1</p>
+                            <p><a href="https://github.com/luisfboff1" target="_blank">github.com/luisfboff1</a></p>
                         </div>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Seu Nome" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Seu Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Assunto" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Enviar Mensagem
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -376,42 +234,7 @@
         </div>
     </footer>
 
-    <!-- Widget do LuisBot -->
-    <div id="ai-assistant" class="ai-chat-widget">
-        <div class="chat-header">
-            <h3>🤖 LuisBot</h3>
-            <p>IA desenvolvida por Luis Fernando Boff</p>
-            <button class="close-chat" onclick="toggleChat()">×</button>
-        </div>
-        
-            <div class="suggested-questions">
-                <p>💡 <span class="suggested-title">Perguntas:</span></p>
-                <button onclick="askSuggested('Experiência do Luis?')">Experiência</button>
-                <button onclick="askSuggested('Projetos desenvolvidos?')">Projetos</button>
-                <button onclick="askSuggested('Contato?')">Contato</button>
-            </div>
-        
-        <div class="chat-messages" id="chat-messages">
-            <div class="message ai-message">
-                <p>Olá! Sou o LuisBot, assistente IA desenvolvido por Luis Fernando Boff! 🤖</p>
-                <p>Posso responder perguntas sobre a experiência, projetos e habilidades do Luis.</p>
-                <p>Como posso ajudar você hoje?</p>
-            </div>
-        </div>
-        
-        <div class="chat-input">
-            <input type="text" id="chat-input" placeholder="Faça sua pergunta..." 
-                   onkeypress="handleEnter(event)">
-            <button onclick="sendMessage()">Enviar</button>
-        </div>
-    </div>
-
-    <!-- Botão flutuante para abrir o chat -->
-    <button id="chat-toggle" class="chat-toggle" onclick="toggleChat()">
-        🤖
-    </button>
-
     <script src="script.js"></script>
-    <script src="ai-assistant.js"></script>
+    <script src="chatbot.js"></script>
 </body>
 </html>

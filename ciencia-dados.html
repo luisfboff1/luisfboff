@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ciência de Dados - Luis Fernando Boff</title>
+    <meta name="description" content="Análise de dados, Machine Learning, IA e insights para tomada de decisões estratégicas.">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon-v3-code-brackets-64x64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-v3-code-brackets-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-v3-code-brackets-16x16.png">
+    <link rel="icon" type="image/x-icon" href="favicon-v3-code-brackets.ico">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><span class="logo-text">&lt;LFB&gt;</span></a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="desenvolvimento.html" class="nav-link">Desenvolvimento</a></li>
+                <li><a href="energia-solar.html" class="nav-link">Energia Solar</a></li>
+                <li><a href="ciencia-dados.html" class="nav-link active">Ciência de Dados</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Parallax de gráficos de dados -->
+    <div class="data-parallax" id="data-parallax">
+        <!-- Histograma 1 -->
+        <div class="chart-container" data-delay="0">
+            <div class="chart-title">Distribuição de Dados</div>
+            <div class="histogram">
+                <div class="bar" style="height: 20%;"></div>
+                <div class="bar" style="height: 45%;"></div>
+                <div class="bar" style="height: 70%;"></div>
+                <div class="bar" style="height: 85%;"></div>
+                <div class="bar" style="height: 60%;"></div>
+                <div class="bar" style="height: 30%;"></div>
+                <div class="bar" style="height: 15%;"></div>
+            </div>
+        </div>
+
+        <!-- Scatter Plot -->
+        <div class="chart-container" data-delay="200">
+            <div class="chart-title">Correlação de Variáveis</div>
+            <div class="scatter-plot">
+                <div class="point" style="left: 15%; top: 20%;"></div>
+                <div class="point" style="left: 25%; top: 35%;"></div>
+                <div class="point" style="left: 40%; top: 50%;"></div>
+                <div class="point" style="left: 55%; top: 65%;"></div>
+                <div class="point" style="left: 70%; top: 75%;"></div>
+                <div class="point" style="left: 85%; top: 85%;"></div>
+            </div>
+        </div>
+
+        <!-- Line Chart -->
+        <div class="chart-container" data-delay="400">
+            <div class="chart-title">Tendência Temporal</div>
+            <div class="line-chart">
+                <svg viewBox="0 0 200 100" class="line-svg">
+                    <path d="M10,80 Q30,60 50,50 T90,30 T130,20 T170,10" stroke="#3b82f6" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Heatmap -->
+        <div class="chart-container" data-delay="600">
+            <div class="chart-title">Matriz de Correlação</div>
+            <div class="heatmap">
+                <div class="heat-cell" style="background: #1e40af;"></div>
+                <div class="heat-cell" style="background: #3b82f6;"></div>
+                <div class="heat-cell" style="background: #60a5fa;"></div>
+                <div class="heat-cell" style="background: #93c5fd;"></div>
+                <div class="heat-cell" style="background: #dbeafe;"></div>
+                <div class="heat-cell" style="background: #f3f4f6;"></div>
+                <div class="heat-cell" style="background: #fbbf24;"></div>
+                <div class="heat-cell" style="background: #f59e0b;"></div>
+                <div class="heat-cell" style="background: #dc2626;"></div>
+            </div>
+        </div>
+
+        <!-- Box Plot -->
+        <div class="chart-container" data-delay="800">
+            <div class="chart-title">Distribuição Estatística</div>
+            <div class="box-plot">
+                <div class="box-whisker">
+                    <div class="whisker"></div>
+                    <div class="box">
+                        <div class="median"></div>
+                    </div>
+                    <div class="whisker"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="chart-container" data-delay="1000">
+            <div class="chart-title">Composição de Dados</div>
+            <div class="pie-chart">
+                <div class="pie-slice" style="--rotation: 0deg; --percentage: 30%; background: #3b82f6;"></div>
+                <div class="pie-slice" style="--rotation: 108deg; --percentage: 25%; background: #10b981;"></div>
+                <div class="pie-slice" style="--rotation: 198deg; --percentage: 20%; background: #f59e0b;"></div>
+                <div class="pie-slice" style="--rotation: 270deg; --percentage: 15%; background: #ef4444;"></div>
+                <div class="pie-slice" style="--rotation: 324deg; --percentage: 10%; background: #8b5cf6;"></div>
+            </div>
+        </div>
+
+        <!-- Neural Network Visualization -->
+        <div class="chart-container" data-delay="1200">
+            <div class="chart-title">Rede Neural</div>
+            <div class="neural-network">
+                <div class="layer">
+                    <div class="neuron"></div>
+                    <div class="neuron"></div>
+                    <div class="neuron"></div>
+                </div>
+                <div class="layer">
+                    <div class="neuron"></div>
+                    <div class="neuron"></div>
+                </div>
+                <div class="layer">
+                    <div class="neuron"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Time Series -->
+        <div class="chart-container" data-delay="1400">
+            <div class="chart-title">Série Temporal</div>
+            <div class="time-series">
+                <svg viewBox="0 0 200 100" class="time-series-svg">
+                    <path d="M10,50 L30,45 L50,40 L70,35 L90,30 L110,25 L130,20 L150,15 L170,10" stroke="#10b981" stroke-width="2" fill="none"/>
+                    <path d="M10,60 L30,55 L50,50 L70,45 L90,40 L110,35 L130,30 L150,25 L170,20" stroke="#3b82f6" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="code-rain"></div>
+            <div class="floating-elements">
+                <div class="element element-1">📊</div>
+                <div class="element element-2">🧠</div>
+                <div class="element element-3">ML</div>
+                <div class="element element-4">AI</div>
+                <div class="element element-5">📈</div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Ciência de</span>
+                    <span class="title-line">Dados</span>
+                    <span class="title-line highlight">Inteligente</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Transformando <span class="code-text">dados em insights valiosos</span><br>
+                    com <span class="magic-text">Machine Learning e IA</span>
+                </p>
+            </div>
+            <div class="hero-visual">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="btn-close"></span>
+                            <span class="btn-minimize"></span>
+                            <span class="btn-maximize"></span>
+                        </div>
+                        <span class="terminal-title">Luis@data:</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">python -c "import pandas as pd"</span>
+                        </div>
+                        <div class="terminal-output">✅ Pandas carregado</div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">tensorflow --version</span>
+                        </div>
+                        <div class="terminal-output">🤖 TensorFlow 2.15.0</div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command typing">echo "Dados transformados em conhecimento"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Serviços de Ciência de Dados</h2>
+                <p class="section-subtitle">Soluções inteligentes para análise e insights</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análise de Dados</h3>
+                    <p>Exploração e análise profunda de dados para insights estratégicos</p>
+                    <ul class="service-tech">
+                        <li>Python, R, SQL</li>
+                        <li>Pandas, NumPy</li>
+                        <li>Estatística descritiva</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Modelos preditivos e algoritmos de aprendizado de máquina</p>
+                    <ul class="service-tech">
+                        <li>TensorFlow, PyTorch</li>
+                        <li>Scikit-learn</li>
+                        <li>Algoritmos supervisionados</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Visualização</h3>
+                    <p>Dashboards e visualizações interativas para tomada de decisão</p>
+                    <ul class="service-tech">
+                        <li>Tableau, Power BI</li>
+                        <li>Matplotlib, Seaborn</li>
+                        <li>Plotly, D3.js</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Big Data</h3>
+                    <p>Processamento de grandes volumes de dados</p>
+                    <ul class="service-tech">
+                        <li>Apache Spark</li>
+                        <li>Hadoop</li>
+                        <li>Processamento distribuído</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Inteligência Artificial</h3>
+                    <p>Soluções de IA para automação e otimização</p>
+                    <ul class="service-tech">
+                        <li>Deep Learning</li>
+                        <li>NLP</li>
+                        <li>Computer Vision</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Automação</h3>
+                    <p>Automação de processos e workflows de dados</p>
+                    <ul class="service-tech">
+                        <li>ETL/ELT</li>
+                        <li>Apache Airflow</li>
+                        <li>Pipelines de dados</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Stack Tecnológico</h2>
+                <p class="section-subtitle">Ferramentas e tecnologias para ciência de dados</p>
+            </div>
+            
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>Linguagens</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Scala</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Machine Learning</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Keras</span>
+                        <span class="tech-tag">XGBoost</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Análise de Dados</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">SciPy</span>
+                        <span class="tech-tag">Statsmodels</span>
+                        <span class="tech-tag">Jupyter</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Visualização</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Seaborn</span>
+                        <span class="tech-tag">Plotly</span>
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Power BI</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Big Data</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Apache Spark</span>
+                        <span class="tech-tag">Hadoop</span>
+                        <span class="tech-tag">Kafka</span>
+                        <span class="tech-tag">Airflow</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pesquisa e Inovação</h2>
+                <p class="section-subtitle">Desenvolvendo soluções de IA para o futuro</p>
+            </div>
+            
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Casas Inteligentes</h3>
+                    <p>Pesquisa em IA para automação residencial e otimização energética</p>
+                    <ul class="research-tech">
+                        <li>Machine Learning para IoT</li>
+                        <li>Otimização energética</li>
+                        <li>Algoritmos de controle</li>
+                    </ul>
+                </div>
+                
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustentabilidade</h3>
+                    <p>Análise de dados para soluções sustentáveis e eficiência energética</p>
+                    <ul class="research-tech">
+                        <li>Análise de consumo</li>
+                        <li>Predição de demanda</li>
+                        <li>Otimização de recursos</li>
+                    </ul>
+                </div>
+                
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academia</h3>
+                    <p>Professor e pesquisador em universidades</p>
+                    <ul class="research-tech">
+                        <li>UCS - Empreendedorismo</li>
+                        <li>UFRGS - Mestrado</li>
+                        <li>Orientação de projetos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Luis Fernando Boff. Todos os direitos reservados.</p>
+                    <p>Construído com <span class="heart">❤️</span> e muito café ☕</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/luisfboff1" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/luis-fernando-boff-7a64a716b/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:luisfboff@hotmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="data-parallax.js"></script>
+</body>
+</html>
