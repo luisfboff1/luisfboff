@@ -125,7 +125,7 @@ site-vitrine/
 #### **Alterar Informações Pessoais:**
 ```html
 <!-- No index.html -->
-<h1>Seu Nome</h1>
+<h1>Seu Nome1</h1>
 <p>Suas informações...</p>
 ```
 
